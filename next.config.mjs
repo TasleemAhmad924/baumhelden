@@ -8,9 +8,6 @@ const nextConfig = {
     // Only run ESLint during build
     ignoreDuringBuilds: false,
   },
-  experimental: {
-    typedRoutes: true,
-  },
   images: {
     remotePatterns: [
       // Add allowed image domains here
