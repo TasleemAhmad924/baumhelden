@@ -1,0 +1,23 @@
+# Global code owners
+* @owner-username
+
+# Specific areas
+/app/ @frontend-team
+/components/ @frontend-team
+/lib/ @backend-team
+/.github/ @devops-team
+
+# Configuration files
+*.json @devops-team
+*.yml @devops-team
+*.yaml @devops-team
+*.config.* @devops-team
+
+# Documentation
+*.md @documentation-team
+/docs/ @documentation-team
+
+# Environment and deployment
+.env* @devops-team
+Dockerfile* @devops-team
+docker-compose* @devops-team
