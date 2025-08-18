@@ -5,66 +5,13 @@ import './globals.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: {
-    default: 'Baumhelden - Professionelle Baumpflege und Baumfällung',
-    template: '%s | Baumhelden',
-  },
-  description:
-    'Professionelle Baumpflege, Baumfällung und Wurzelentfernung. Ihre Experten für Baumarbeiten in der Region.',
-  keywords: [
-    'Baumpflege',
-    'Baumfällung',
-    'Wurzelentfernung',
-    'Baumschnitt',
-    'Baumpflege Service',
-    'Baumarbeiten',
-  ],
-  authors: [{ name: 'Baumhelden Team' }],
-  creator: 'Baumhelden',
-  publisher: 'Baumhelden',
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
-  metadataBase: new URL('https://baumhelden.de'), // TODO: Update with actual domain
-  alternates: {
-    canonical: '/',
-  },
-  openGraph: {
-    type: 'website',
-    locale: 'de_DE',
-    url: 'https://baumhelden.de', // TODO: Update with actual domain
-    title: 'Baumhelden - Professionelle Baumpflege und Baumfällung',
-    description:
-      'Professionelle Baumpflege, Baumfällung und Wurzelentfernung. Ihre Experten für Baumarbeiten in der Region.',
-    siteName: 'Baumhelden',
-    images: [
-      {
-        url: '/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Baumhelden - Professionelle Baumpflege',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Baumhelden - Professionelle Baumpflege und Baumfällung',
-    description:
-      'Professionelle Baumpflege, Baumfällung und Wurzelentfernung. Ihre Experten für Baumarbeiten in der Region.',
-    images: ['/twitter-image.jpg'],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
+  title: 'BAUMHELDEN - Professionelle Baumpflege und Baumfällung',
+  description: 'Wir kümmern uns um Ihre Bäume – sicher, schonend und ästhetisch. Zertifizierte Baumpfleger für Baumpflege, Baumfällung und Wurzelstockentfernung.',
+  keywords: 'Baumpflege, Baumfällung, Wurzelstockentfernung, Baumkontrolle, Baumpfleger',
+  authors: [{ name: 'BAUMHELDEN' }],
+  viewport: 'width=device-width, initial-scale=1',
+  icons: {
+    icon: '/favicon.svg',
   },
 };
 
@@ -75,10 +22,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="de" suppressHydrationWarning>
-      <body className={inter.className}>
-        {/* TODO: Add Header component */}
-        <main>{children}</main>
-        {/* TODO: Add Footer component */}
+      <body className={inter.className} suppressHydrationWarning>
+        {children}
       </body>
     </html>
   );
