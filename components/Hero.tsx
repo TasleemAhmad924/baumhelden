@@ -16,13 +16,16 @@ export function Hero() {
     <section id="hero" className="relative min-h-screen flex items-center justify-center px-4 pt-20">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-green-900/80 via-green-800/60 to-gray-900/80" />
+        {/* Hintergrundbild */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: 'url("/chainsaw-bg.svg")',
+            backgroundImage: 'url("/background_mainpage.jpg")',
+            filter: 'brightness(0.5)'
           }}
         />
+        {/* Dunkles Overlay für stylischen Look */}
+        <div className="absolute inset-0 bg-gradient-to-br from-green-900/80 via-green-800/60 to-gray-900/80 pointer-events-none" />
       </div>
 
       {/* Content */}
