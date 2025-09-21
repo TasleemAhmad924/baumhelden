@@ -1,4 +1,4 @@
-import { MapPin } from 'lucide-react';
+// import { MapPin } from 'lucide-react';
 import { GlassCard } from './GlassCard';
 
 export function GalleryContact() {
@@ -8,20 +8,20 @@ export function GalleryContact() {
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">
           Galerie
         </h2>
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Map Card */}
           <GlassCard className="p-6 md:p-8">
             <div className="space-y-4">
               <div className="w-full h-48 md:h-64 bg-gray-200 rounded-xl overflow-hidden">
                 {/* Google Maps iframe */}
-                <iframe 
+                <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4705.0723299441115!2d10.659642076962943!3d53.868895435496576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b20ea95e0509f5%3A0xa2c4f2c7ae9fff99!2sTrappenstra%C3%9Fe%2012%2C%2023558%20L%C3%BCbeck!5e0!3m2!1sde!2sde!4v1758484038370!5m2!1sde!2sde"
-                  width="100%" 
-                  height="100%" 
-                  style={{ border: 0 }} 
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
                   allowFullScreen
-                  loading="lazy" 
+                  loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className="w-full h-full rounded-xl"
                 />
@@ -31,34 +31,35 @@ export function GalleryContact() {
               </p>
             </div>
           </GlassCard>
-          
+
           {/* Contact Card */}
           <GlassCard className="p-6 md:p-8">
             <div className="space-y-6">
               <h3 className="text-2xl font-semibold text-gray-900 mb-6">
                 Kontakt
               </h3>
-              
+
               <div className="space-y-4">
                 <div>
                   <p className="text-lg font-medium text-gray-900">
                     Christian Theunert
                   </p>
                 </div>
-                
+
                 <div>
                   <p className="text-gray-700">
                     <span className="font-medium">Telefon:</span> 0123 / 4507830
                   </p>
                 </div>
-                
+
                 <div>
                   <p className="text-gray-700">
-                    <span className="font-medium">E-Mail:</span> kontakt@baumhelden.de
+                    <span className="font-medium">E-Mail:</span>{' '}
+                    kontakt@baumhelden.de
                   </p>
                 </div>
               </div>
-              
+
               <div className="pt-4">
                 <button className="bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-xl font-medium transition-colors duration-200">
                   Kontakt aufnehmen
