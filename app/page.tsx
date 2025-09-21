@@ -3,20 +3,15 @@ import { Hero } from '@/components/Hero';
 import { Services } from '@/components/Services';
 import { About } from '@/components/About';
 import { GalleryContact } from '@/components/GalleryContact';
-import { Footer } from '@/components/ui/demo';
-import { HydrationBoundary } from '@/components/HydrationBoundary';
 
 export default function Home() {
   return (
-    <HydrationBoundary>
-      <main className="min-h-screen bg-gradient-to-br from-green-50 via-white to-gray-50">
-        <Header />
-        <Hero />
-        <Services />
-        <About />
-        <GalleryContact />
-        <Footer />
-      </main>
-    </HydrationBoundary>
+    <main className="min-h-screen bg-gradient-to-br from-green-50 via-white to-gray-50">
+      <Header />
+      <Hero />
+      <Services />
+      <About />
+      <GalleryContact />
+    </main>
   );
 }
