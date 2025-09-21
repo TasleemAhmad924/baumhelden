@@ -20,7 +20,8 @@ export function ContactForm() {
       access_key: '59cb4de0-48c5-4a5d-b358-4a82f4a08ace',
       name: (form.elements.namedItem('name') as HTMLInputElement).value,
       email: (form.elements.namedItem('email') as HTMLInputElement).value,
-      message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
+      message: (form.elements.namedItem('message') as HTMLTextAreaElement)
+        .value,
     };
     const response = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
@@ -43,7 +44,10 @@ export function ContactForm() {
         className="max-w-md mx-auto p-6 bg-white rounded shadow space-y-4"
       >
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="name"
+            className="block text-sm font-medium text-gray-700"
+          >
             Name
           </label>
           <input
@@ -55,7 +59,10 @@ export function ContactForm() {
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="email"
+            className="block text-sm font-medium text-gray-700"
+          >
             Email
           </label>
           <input
@@ -67,7 +74,10 @@ export function ContactForm() {
           />
         </div>
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="message"
+            className="block text-sm font-medium text-gray-700"
+          >
             Message
           </label>
           <textarea
