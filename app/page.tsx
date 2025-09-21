@@ -3,7 +3,7 @@ import { Hero } from '@/components/Hero';
 import { Services } from '@/components/Services';
 import { About } from '@/components/About';
 import { GalleryContact } from '@/components/GalleryContact';
-import { ContactForm } from '@/components/forms/contactForm';
+import { ContactForm } from '@/components/forms/ContactForm';
 
 export default function Home() {
   return (
