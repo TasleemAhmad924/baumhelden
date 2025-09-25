@@ -3,7 +3,7 @@ import { GalleryContact } from '@/components/GalleryContact';
 import { Header } from '@/components/Header';
 import { Hero } from '@/components/Hero';
 import { Services } from '@/components/Services';
-import { ContactForm } from '@/components/forms/contactForm';
+import TreeContactForm from '@/components/forms/contactForm';
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
       <Services />
       <About />
       <GalleryContact />
-      <ContactForm />
+      <TreeContactForm />
     </main>
   );
 }
