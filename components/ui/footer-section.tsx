@@ -1,12 +1,6 @@
 "use client"
 
 import * as React from "react"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
 import { Instagram } from "lucide-react"
 import Link from 'next/link'
 
@@ -69,22 +63,14 @@ function Footerdemo() {
             </address>
             <div className="mt-6">
               <h3 className="mb-4 text-lg font-semibold">Folgen Sie uns</h3>
-              <TooltipProvider>
-                <Tooltip>
-                  <TooltipTrigger asChild>
-                    <Link
-                      href="#"
-                      className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-white/40 hover:border-white hover:bg-white/10 transition-colors"
-                    >
-                      <Instagram className="h-4 w-4 text-white" />
-                      <span className="sr-only">Instagram</span>
-                    </Link>
-                  </TooltipTrigger>
-                  <TooltipContent>
-                    <p>Folgen Sie uns auf Instagram</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
+              <Link
+                href="#"
+                className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-white/40 hover:border-white hover:bg-white/10 transition-colors"
+                title="Folgen Sie uns auf Instagram"
+              >
+                <Instagram className="h-4 w-4 text-white" />
+                <span className="sr-only">Instagram</span>
+              </Link>
             </div>
           </div>
         </div>
