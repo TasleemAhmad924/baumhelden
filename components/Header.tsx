@@ -35,7 +35,7 @@ export function Header() {
       <GlassCard className="flex items-center justify-between px-6 h-14">
         <div className="flex items-center">
           <Image
-            src="/logo.svg"
+            src="/Bildzeichen/BH_BW.svg"
             alt="Baumhelden Logo"
             width={140}
             height={40}

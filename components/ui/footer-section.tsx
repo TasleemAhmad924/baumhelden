@@ -12,9 +12,9 @@ function Footerdemo() {
       <div className="container mx-auto px-4 py-12 md:px-6 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
           <div>
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="h-12 md:h-14 flex items-center justify-center">
-                <img src="/Original mit Slogan/BH_LSW.svg" alt="Baumhelden Logo" className="h-12 md:h-14 w-auto" />
+            <div className="flex items-center space-x-2 mb-6">
+              <div className="h-14 md:h-16 flex items-center justify-center">
+                <img src="/Original mit Slogan/BH_LSW.svg" alt="Baumhelden Logo" className="h-14 md:h-16 w-auto" />
               </div>
             </div>
             <p className="text-white/90 mb-4">
