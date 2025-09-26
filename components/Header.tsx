@@ -1,9 +1,26 @@
 'use client';
 
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 import { GlassCard } from './GlassCard';
 
 export function Header() {
+  const [atTop, setAtTop] = useState(true);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setAtTop(window.scrollY < 10);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  const linkBase = 'transition-colors';
+  const linkColor = atTop ? 'text-white hover:text-gray-200' : 'text-gray-900 hover:text-gray-700';
+  const dotColor = atTop ? 'text-white/50' : 'text-gray-400';
+  const mobileColor = atTop ? 'text-white' : 'text-gray-900';
+
   const scrollToSection = (sectionId: string) => {
     if (typeof window !== 'undefined') {
       const element = document.getElementById(sectionId);
@@ -28,30 +45,21 @@ export function Header() {
         </div>
         
         <nav className="hidden md:flex items-center space-x-6">
-          <button
-            onClick={() => scrollToSection('hero')}
-            className="text-white hover:text-gray-200 transition-colors"
-          >
+          <button onClick={() => scrollToSection('hero')} className={`${linkBase} ${linkColor}`}>
             Startseite
           </button>
-          <span className="text-white/50">•</span>
-          <button
-            onClick={() => scrollToSection('services')}
-            className="text-white hover:text-gray-200 transition-colors"
-          >
+          <span className={dotColor}>•</span>
+          <button onClick={() => scrollToSection('services')} className={`${linkBase} ${linkColor}`}>
             Unsere Leistungen
           </button>
-          <span className="text-white/50">•</span>
-          <button
-            onClick={() => scrollToSection('about')}
-            className="text-white hover:text-gray-200 transition-colors"
-          >
+          <span className={dotColor}>•</span>
+          <button onClick={() => scrollToSection('about')} className={`${linkBase} ${linkColor}`}>
             Über uns
           </button>
         </nav>
 
         {/* Mobile menu button */}
-        <button className="md:hidden text-white">
+        <button className={`md:hidden ${mobileColor} transition-colors`}>
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
           </svg>

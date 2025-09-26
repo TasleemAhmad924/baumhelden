@@ -37,13 +37,8 @@ export function Hero() {
           blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
         />
         
-        {/* Gradient Overlay */}
-        <div 
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background: 'linear-gradient(90deg, rgba(6,35,28,0.28) 0%, rgba(6,35,28,0.08) 55%, rgba(6,35,28,0.0) 100%)'
-          }}
-        />
+        {/* Simple dark overlay for readability */}
+        <div className="absolute inset-0 bg-black/20 pointer-events-none" />
       </div>
 
       {/* Hero Card */}
@@ -79,7 +74,7 @@ export function Hero() {
                 leading-[0.95]
                 mb-4
                 sm:mb-6
-                text-[#233834]
+                text-emerald-600
                 tracking-wide
               "
               style={{
@@ -95,7 +90,7 @@ export function Hero() {
                 mb-6
                 sm:mb-8
                 leading-relaxed
-                text-[rgba(20,40,36,0.92)]
+                text-emerald-700
               "
               style={{
                 fontSize: 'clamp(14px, 2vw, 18px)',
@@ -117,29 +112,24 @@ export function Hero() {
                 rounded-full
                 font-medium
                 text-white
+                bg-emerald-600
                 transition-all
                 duration-200
                 ease-in-out
                 shadow-lg
                 hover:shadow-xl
                 hover:scale-105
+                hover:bg-emerald-700
                 active:scale-95
                 focus:outline-none
                 focus:ring-4
-                focus:ring-green-500/30
+                focus:ring-emerald-500/30
                 w-full
                 sm:w-auto
                 sm:min-w-[180px]
               "
               style={{
-                background: '#154237',
                 fontSize: 'clamp(14px, 2vw, 16px)'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = '#123b33';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = '#154237';
               }}
             >
               Jetzt Termin vereinbaren

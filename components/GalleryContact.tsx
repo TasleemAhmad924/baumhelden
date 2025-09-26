@@ -3,7 +3,7 @@ import { GlassCard } from './GlassCard';
 
 export function GalleryContact() {
   return (
-    <section id="contact" className="py-20 px-4">
+    <section id="contact" className="py-20 px-4 bg-white">
       <div className="max-w-screen-xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">
           Galerie
@@ -61,7 +61,7 @@ export function GalleryContact() {
               </div>
 
               <div className="pt-4">
-                <button className="bg-gray-800 hover:bg-gray-700 text-white px-6 py-3 rounded-xl font-medium transition-colors duration-200">
+                <button className="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-xl font-medium transition-colors duration-200">
                   Kontakt aufnehmen
                 </button>
               </div>
