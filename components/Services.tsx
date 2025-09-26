@@ -34,7 +34,7 @@ export function Services() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {services.map((service, index) => (
-            <GlassCard key={index} className="p-6 md:p-8">
+            <GlassCard key={index} className="p-6 md:p-8 transition-shadow duration-300 ease-out hover:shadow-xl hover:shadow-emerald-900/10">
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0">
                   <service.icon className="w-8 h-8 text-gray-700" />

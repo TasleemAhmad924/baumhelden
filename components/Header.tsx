@@ -6,6 +6,7 @@ import { GlassCard } from './GlassCard';
 
 export function Header() {
   const [atTop, setAtTop] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => {
@@ -35,7 +36,7 @@ export function Header() {
       <GlassCard className="flex items-center justify-between px-6 h-14">
         <div className="flex items-center">
           <Image
-            src="/Bildzeichen/BH_BW.svg"
+            src={atTop ? '/Bildzeichen/BH_BW.svg' : '/Bildzeichen/BH_BB.svg'}
             alt="Baumhelden Logo"
             width={140}
             height={40}
@@ -45,26 +46,59 @@ export function Header() {
         </div>
         
         <nav className="hidden md:flex items-center space-x-6">
-          <button onClick={() => scrollToSection('hero')} className={`${linkBase} ${linkColor}`}>
-            Startseite
+          <button onClick={() => scrollToSection('hero')} className={`relative group ${linkBase} ${linkColor}`}>
+            <span>Startseite</span>
+            <span className="pointer-events-none absolute left-0 -bottom-1 h-0.5 w-full origin-left scale-x-0 bg-current transition-transform duration-200 ease-out group-hover:scale-x-100" />
           </button>
           <span className={dotColor}>•</span>
-          <button onClick={() => scrollToSection('services')} className={`${linkBase} ${linkColor}`}>
-            Unsere Leistungen
+          <button onClick={() => scrollToSection('services')} className={`relative group ${linkBase} ${linkColor}`}>
+            <span>Unsere Leistungen</span>
+            <span className="pointer-events-none absolute left-0 -bottom-1 h-0.5 w-full origin-left scale-x-0 bg-current transition-transform duration-200 ease-out group-hover:scale-x-100" />
           </button>
           <span className={dotColor}>•</span>
-          <button onClick={() => scrollToSection('about')} className={`${linkBase} ${linkColor}`}>
-            Über uns
+          <button onClick={() => scrollToSection('about')} className={`relative group ${linkBase} ${linkColor}`}>
+            <span>Über uns</span>
+            <span className="pointer-events-none absolute left-0 -bottom-1 h-0.5 w-full origin-left scale-x-0 bg-current transition-transform duration-200 ease-out group-hover:scale-x-100" />
           </button>
         </nav>
 
-        {/* Mobile menu button */}
-        <button className={`md:hidden ${mobileColor} transition-colors`}>
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
+        <button
+          onClick={() => setMenuOpen((v) => !v)}
+          aria-expanded={menuOpen}
+          aria-label="Menü öffnen"
+          className={`md:hidden ${mobileColor} transition-colors`}
+        >
+          <span className="relative block w-6 h-6">
+            <span
+              className={`absolute left-0 top-1.5 h-0.5 w-6 bg-current transition-all duration-300 ease-in-out ${menuOpen ? 'translate-y-1.5 rotate-45' : ''}`}
+            />
+            <span
+              className={`absolute left-0 top-1/2 h-0.5 w-6 -translate-y-1/2 bg-current transition-all duration-300 ease-in-out ${menuOpen ? 'opacity-0 scale-x-0' : 'opacity-100 scale-x-100'}`}
+            />
+            <span
+              className={`absolute left-0 bottom-1.5 h-0.5 w-6 bg-current transition-all duration-300 ease-in-out ${menuOpen ? '-translate-y-1.5 -rotate-45' : ''}`}
+            />
+          </span>
         </button>
       </GlassCard>
+      <div className="md:hidden mt-2">
+        <GlassCard
+          className={`px-6 py-0 overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${menuOpen ? 'opacity-100 translate-y-0 scale-100 max-h-96 py-4' : 'opacity-0 -translate-y-2 scale-[0.98] max-h-0 pointer-events-none'}`}
+          aria-hidden={!menuOpen}
+        >
+          <div className="flex flex-col space-y-4">
+            <button onClick={() => { scrollToSection('hero'); setMenuOpen(false); }} className={`${linkBase} ${mobileColor} active:opacity-70`}>
+              Startseite
+            </button>
+            <button onClick={() => { scrollToSection('services'); setMenuOpen(false); }} className={`${linkBase} ${mobileColor} active:opacity-70`}>
+              Unsere Leistungen
+            </button>
+            <button onClick={() => { scrollToSection('about'); setMenuOpen(false); }} className={`${linkBase} ${mobileColor} active:opacity-70`}>
+              Über uns
+            </button>
+          </div>
+        </GlassCard>
+      </div>
     </header>
   );
 }

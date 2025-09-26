@@ -80,19 +80,19 @@ function Footerdemo() {
           </p>
           <nav className="flex gap-4 text-sm">
             <Link
-              href="/datenschutz"
+              href="/privacy-policy"
               className="transition-colors hover:text-white"
             >
               Datenschutz
             </Link>
             <Link
-              href="/impressum"
+              href="/imprint"
               className="transition-colors hover:text-white"
             >
               Impressum
             </Link>
             <Link
-              href="/agb"
+              href="/terms"
               className="transition-colors hover:text-white"
             >
               AGB
