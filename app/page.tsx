@@ -3,7 +3,7 @@ import { Hero } from '@/components/Hero';
 import { Services } from '@/components/Services';
 import { About } from '@/components/About';
 import { GalleryContact } from '@/components/GalleryContact';
-import { Footer } from '@/components/ui/demo';
+import { Footerdemo } from '@/components/ui/footer-section';
 import { HydrationBoundary } from '@/components/HydrationBoundary';
 
 export default function Home() {
@@ -15,7 +15,7 @@ export default function Home() {
         <Services />
         <About />
         <GalleryContact />
-        <Footer />
+        <Footerdemo />
       </main>
     </HydrationBoundary>
   );
