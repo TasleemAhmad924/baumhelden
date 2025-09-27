@@ -27,25 +27,25 @@ function Footerdemo() {
             <h3 className="mb-4 text-lg font-semibold">Leistungen</h3>
             <nav className="space-y-2 text-sm">
               <Link
-                href="/leistungen/baumfaellung"
+                href="/#leistungen"
                 className="block transition-colors hover:text-white"
               >
                 Baumfällung
               </Link>
               <Link
-                href="/leistungen/baumpflege"
+                href="/#leistungen"
                 className="block transition-colors hover:text-white"
               >
                 Baumpflege
               </Link>
               <Link
-                href="/leistungen/wurzelentfernung"
+                href="/#leistungen"
                 className="block transition-colors hover:text-white"
               >
                 Wurzelentfernung
               </Link>
               <Link
-                href="/leistungen/notfall"
+                href="/#leistungen"
                 className="block transition-colors hover:text-white"
               >
                 Notfallservice
@@ -56,15 +56,32 @@ function Footerdemo() {
           <div>
             <h3 className="mb-4 text-lg font-semibold">Kontakt</h3>
             <address className="space-y-2 text-sm not-italic text-white/90">
-              <p>TODO: Adresse</p>
-              <p>TODO: Telefonnummer</p>
-              <p>TODO: E-Mail-Adresse</p>
-              <p>TODO: Öffnungszeiten</p>
+              <p>Christian Theunert</p>
+              <p>Trappenstraße 12</p>
+              <p>23558 Lübeck</p>
+              <p>
+                <a 
+                  href="tel:+4916093490444" 
+                  className="hover:text-white transition-colors"
+                >
+                  +49 160 93490444
+                </a>
+              </p>
+              <p>
+                <a 
+                  href="mailto:info@baumhelden-luebeck.de" 
+                  className="hover:text-white transition-colors"
+                >
+                  info@baumhelden-luebeck.de
+                </a>
+              </p>
             </address>
             <div className="mt-6">
               <h3 className="mb-4 text-lg font-semibold">Folgen Sie uns</h3>
               <Link
-                href="#"
+                href="https://www.instagram.com/baumhelden.luebeck/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center w-10 h-10 rounded-full border border-white/40 hover:border-white hover:bg-white/10 transition-colors"
                 title="Folgen Sie uns auf Instagram"
               >

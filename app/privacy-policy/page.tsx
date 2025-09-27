@@ -1,7 +1,6 @@
-'use client';
-
 import { Header } from '@/components/Header';
-import { GlassCard } from '@/components/GlassCard';
+import { Footerdemo } from '@/components/ui/footer-section';
+import { DatenschutzContent } from '@/components/DatenschutzContent';
 import { HydrationBoundary } from '@/components/HydrationBoundary';
 
 export default function PrivacyPolicyPage() {
@@ -10,17 +9,13 @@ export default function PrivacyPolicyPage() {
       <main className="min-h-screen bg-white">
         <Header />
         <section className="px-4 pt-28 pb-16">
-          <div className="max-w-screen-xl mx-auto">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">Datenschutz</h1>
-            <GlassCard className="p-6 md:p-8">
-              <div className="prose prose-gray max-w-none">
-                <p>
-                  Hier steht Platzhaltertext für die Datenschutzerklärung. Inhalte werden später ergänzt.
-                </p>
-              </div>
-            </GlassCard>
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white p-6 md:p-8 rounded-2xl shadow-lg">
+              <DatenschutzContent />
+            </div>
           </div>
         </section>
+        <Footerdemo />
       </main>
     </HydrationBoundary>
   );

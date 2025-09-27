@@ -21,6 +21,7 @@ export function Hero() {
 
   return (
     <header 
+      id="hero"
       className="relative w-full h-[50vh] sm:h-[60vh] lg:h-[70vh] max-h-[820px] overflow-hidden"
       aria-label="Hero"
     >

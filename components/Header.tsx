@@ -1,21 +1,29 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { GlassCard } from './GlassCard';
 
 export function Header() {
   const [atTop, setAtTop] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isHomepage = pathname === '/';
 
   useEffect(() => {
-    const onScroll = () => {
-      setAtTop(window.scrollY < 10);
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+    if (isHomepage) {
+      const onScroll = () => {
+        setAtTop(window.scrollY < 10);
+      };
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+      return () => window.removeEventListener('scroll', onScroll);
+    } else {
+      setAtTop(false);
+    }
+  }, [isHomepage]);
 
   const linkBase = 'transition-colors';
   const linkColor = atTop ? 'text-white hover:text-gray-200' : 'text-gray-900 hover:text-gray-700';
@@ -31,32 +39,48 @@ export function Header() {
     }
   };
 
+  const handleHomepageNavigation = (sectionId: string) => {
+    if (isHomepage) {
+      scrollToSection(sectionId);
+    } else {
+      window.location.href = `/#${sectionId}`;
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  };
+
   return (
     <header className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-screen-xl px-4">
       <GlassCard className="flex items-center justify-between px-6 h-14">
         <div className="flex items-center">
-          <Image
-            src={atTop ? '/Bildzeichen/BH_BW.svg' : '/Bildzeichen/BH_BB.svg'}
-            alt="Baumhelden Logo"
-            width={140}
-            height={40}
-            priority
-            className="h-8 w-auto"
-          />
+          <Link href="/">
+            <Image
+              src={atTop ? '/Bildzeichen/BH_BW.svg' : '/Bildzeichen/BH_BB.svg'}
+              alt="Baumhelden Logo"
+              width={140}
+              height={40}
+              priority
+              className="h-8 w-auto"
+            />
+          </Link>
         </div>
         
         <nav className="hidden md:flex items-center space-x-6">
-          <button onClick={() => scrollToSection('hero')} className={`relative group ${linkBase} ${linkColor}`}>
+          <button onClick={() => handleHomepageNavigation('hero')} className={`relative group ${linkBase} ${linkColor}`}>
             <span>Startseite</span>
             <span className="pointer-events-none absolute left-0 -bottom-1 h-0.5 w-full origin-left scale-x-0 bg-current transition-transform duration-200 ease-out group-hover:scale-x-100" />
           </button>
           <span className={dotColor}>•</span>
-          <button onClick={() => scrollToSection('services')} className={`relative group ${linkBase} ${linkColor}`}>
+          <button onClick={() => handleHomepageNavigation('leistungen')} className={`relative group ${linkBase} ${linkColor}`}>
             <span>Unsere Leistungen</span>
             <span className="pointer-events-none absolute left-0 -bottom-1 h-0.5 w-full origin-left scale-x-0 bg-current transition-transform duration-200 ease-out group-hover:scale-x-100" />
           </button>
           <span className={dotColor}>•</span>
-          <button onClick={() => scrollToSection('about')} className={`relative group ${linkBase} ${linkColor}`}>
+          <button onClick={() => handleHomepageNavigation('about')} className={`relative group ${linkBase} ${linkColor}`}>
             <span>Über uns</span>
             <span className="pointer-events-none absolute left-0 -bottom-1 h-0.5 w-full origin-left scale-x-0 bg-current transition-transform duration-200 ease-out group-hover:scale-x-100" />
           </button>
@@ -87,13 +111,13 @@ export function Header() {
           aria-hidden={!menuOpen}
         >
           <div className="flex flex-col space-y-4">
-            <button onClick={() => { scrollToSection('hero'); setMenuOpen(false); }} className={`${linkBase} ${mobileColor} active:opacity-70`}>
+            <button onClick={() => { handleHomepageNavigation('hero'); setMenuOpen(false); }} className={`${linkBase} ${mobileColor} active:opacity-70`}>
               Startseite
             </button>
-            <button onClick={() => { scrollToSection('services'); setMenuOpen(false); }} className={`${linkBase} ${mobileColor} active:opacity-70`}>
+            <button onClick={() => { handleHomepageNavigation('leistungen'); setMenuOpen(false); }} className={`${linkBase} ${mobileColor} active:opacity-70`}>
               Unsere Leistungen
             </button>
-            <button onClick={() => { scrollToSection('about'); setMenuOpen(false); }} className={`${linkBase} ${mobileColor} active:opacity-70`}>
+            <button onClick={() => { handleHomepageNavigation('about'); setMenuOpen(false); }} className={`${linkBase} ${mobileColor} active:opacity-70`}>
               Über uns
             </button>
           </div>

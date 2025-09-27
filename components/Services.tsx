@@ -47,7 +47,7 @@ export function Services() {
   };
 
   return (
-    <section id="services" className="py-20 px-4 bg-white">
+    <section id="leistungen" className="py-20 px-4 bg-white">
       <div className="max-w-screen-xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
           Unsere Leistungen
