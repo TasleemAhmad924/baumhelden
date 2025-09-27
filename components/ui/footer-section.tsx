@@ -10,8 +10,8 @@ function Footerdemo() {
   return (
     <footer className="relative border-t bg-emerald-600 text-white transition-colors duration-300">
       <div className="container mx-auto px-4 py-12 md:px-6 lg:px-8">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-3">
-          <div>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="order-1 md:order-1">
             <div className="flex items-center space-x-2 mb-6">
               <div className="h-14 md:h-16 flex items-center justify-center">
                 <img src="/Original mit Slogan/BH_LSW.svg" alt="Baumhelden Logo" className="h-14 md:h-16 w-auto" />
@@ -23,9 +23,15 @@ function Footerdemo() {
             </p>
           </div>
           
-          <div>
+          <div className="order-3 md:order-2">
             <h3 className="mb-4 text-lg font-semibold">Leistungen</h3>
             <nav className="space-y-2 text-sm">
+              <Link
+                href="/#leistungen"
+                className="block transition-colors hover:text-white"
+              >
+                Hilfe bei Sturmschäden
+              </Link>
               <Link
                 href="/#leistungen"
                 className="block transition-colors hover:text-white"
@@ -36,7 +42,7 @@ function Footerdemo() {
                 href="/#leistungen"
                 className="block transition-colors hover:text-white"
               >
-                Baumpflege
+                Entsorgung
               </Link>
               <Link
                 href="/#leistungen"
@@ -44,16 +50,10 @@ function Footerdemo() {
               >
                 Wurzelentfernung
               </Link>
-              <Link
-                href="/#leistungen"
-                className="block transition-colors hover:text-white"
-              >
-                Notfallservice
-              </Link>
             </nav>
           </div>
 
-          <div>
+          <div className="order-4 md:order-3">
             <h3 className="mb-4 text-lg font-semibold">Kontakt</h3>
             <address className="space-y-2 text-sm not-italic text-white/90">
               <p>Christian Theunert</p>
@@ -90,7 +90,27 @@ function Footerdemo() {
               </Link>
             </div>
           </div>
+
+          <div className="order-2 md:order-4">
+            <h3 className="mb-4 text-lg font-semibold">Unser Standort</h3>
+            <div className="w-full h-40 md:h-48 lg:h-52 bg-gray-200 rounded-xl overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4705.0723299441115!2d10.659642076962943!3d53.868895435496576!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b20ea95e0509f5%3A0xa2c4f2c7ae9fff99!2sTrappenstra%C3%9Fe%2012%2C%2023558%20L%C3%BCbeck!5e0!3m2!1sde!2sde!4v1758484038370!5m2!1sde!2sde"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full rounded-xl"
+              />
+            </div>
+            <p className="text-white/90 mt-3 text-sm">
+              Trappenstr. 12 - 23558 Lübeck
+            </p>
+          </div>
         </div>
+
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/30 pt-8 text-center md:flex-row">
           <p className="text-sm text-white/90">
             © {currentYear} Baumhelden. Alle Rechte vorbehalten.
@@ -107,12 +127,6 @@ function Footerdemo() {
               className="transition-colors hover:text-white"
             >
               Impressum
-            </Link>
-            <Link
-              href="/terms"
-              className="transition-colors hover:text-white"
-            >
-              AGB
             </Link>
           </nav>
         </div>

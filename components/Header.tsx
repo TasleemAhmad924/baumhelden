@@ -84,6 +84,11 @@ export function Header() {
             <span>Über uns</span>
             <span className="pointer-events-none absolute left-0 -bottom-1 h-0.5 w-full origin-left scale-x-0 bg-current transition-transform duration-200 ease-out group-hover:scale-x-100" />
           </button>
+          <span className={dotColor}>•</span>
+          <button onClick={() => handleHomepageNavigation('contact')} className={`relative group ${linkBase} ${linkColor}`}>
+            <span>Kontaktanfrage</span>
+            <span className="pointer-events-none absolute left-0 -bottom-1 h-0.5 w-full origin-left scale-x-0 bg-current transition-transform duration-200 ease-out group-hover:scale-x-100" />
+          </button>
         </nav>
 
         <button
@@ -119,6 +124,9 @@ export function Header() {
             </button>
             <button onClick={() => { handleHomepageNavigation('about'); setMenuOpen(false); }} className={`${linkBase} ${mobileColor} active:opacity-70`}>
               Über uns
+            </button>
+            <button onClick={() => { handleHomepageNavigation('contact'); setMenuOpen(false); }} className={`${linkBase} ${mobileColor} active:opacity-70`}>
+              Kontaktanfrage
             </button>
           </div>
         </GlassCard>

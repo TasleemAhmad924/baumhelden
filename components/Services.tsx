@@ -7,11 +7,11 @@ import { Plus } from 'lucide-react';
 const services = [
   {
     id: 1,
-    title: 'Baumpflege',
-    short_description: 'Erhaltung, Lichtraumprofil und Pflegearbeiten',
-    full_description: 'Unsere professionelle Baumpflege umfasst alle Maßnahmen zur Erhaltung und Verbesserung der Gesundheit Ihrer Bäume. Wir führen Lichtraumprofil-Schnitte durch, entfernen Totholz, behandeln Krankheiten und sorgen für eine optimale Kronenentwicklung. Mit modernen Techniken und jahrelanger Erfahrung erhalten wir Ihre Bäume in bestem Zustand.',
-    image: '/Baumpflege.jpg',
-    icon: '🌳'
+    title: 'Hilfe bei Sturmschäden und akuter Bruchgefahr',
+    short_description: 'Schnelle Unterstützung bei Sturmschäden und Gefahrensituationen',
+    full_description: 'Bei Sturmschäden und akuter Bruchgefahr ist schnelle Hilfe gefragt. Unser erfahrenes Team beurteilt die Situation professionell und reagiert zeitnah auf Notfälle. Wir sichern gefährliche Bereiche ab, entfernen umgestürzte Bäume und führen Notfallfällungen durch. Dabei setzen wir modernste Technik ein und arbeiten nach höchsten Sicherheitsstandards.',
+    image: '/Sturmschaeden.jpg',
+    icon: '🌪️'
   },
   {
     id: 2,
@@ -23,11 +23,11 @@ const services = [
   },
   {
     id: 3,
-    title: 'Baumkontrolle',
-    short_description: 'Standsicherheit, Lebensdauer und Gutachten',
-    full_description: 'Unsere zertifizierten Baumkontrolleure führen regelmäßige Kontrollen zur Standsicherheit und Gesundheit Ihrer Bäume durch. Wir erstellen detaillierte Gutachten, bewerten Schäden und entwickeln individuelle Pflegekonzepte. Mit modernen Messgeräten und langjähriger Expertise sorgen wir für die Sicherheit und Langlebigkeit Ihrer Bäume.',
-    image: '/Baumkontrolle.jpg',
-    icon: '🔍'
+    title: 'Entsorgung des Schnittguts und Stammholz',
+    short_description: 'Fachgerechte Entsorgung von Schnittgut und Stammholz',
+    full_description: 'Nach Baumfällungen und Schnittarbeiten übernehmen wir die fachgerechte Entsorgung von Schnittgut und Stammholz. Wir transportieren das Material ab und führen es der nachhaltigen Verwertung zu. Dabei arbeiten wir mit regionalen Partnern zusammen und sorgen für eine umweltfreundliche Entsorgung. Das Holz wird als Brennholz aufbereitet oder für andere Zwecke weiterverwendet.',
+    image: '/baum_entsorgung.jpg',
+    icon: '🪓'
   },
   {
     id: 4,

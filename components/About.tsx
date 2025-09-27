@@ -1,38 +1,44 @@
 
 
-import { Users, Leaf, Award, Heart, Shield } from "lucide-react";
+import { Heart, Users, Leaf, Award, Shield, CheckCircle } from "lucide-react";
 
 export function About() {
   const values = [
     {
+      icon: <Heart className="w-6 h-6" />,
+      title: "Baumhelden – We feel nature",
+      description:
+        "Wir sind die Baumhelden – ein junges, dynamisches Team, die ihre Leidenschaft für Bäume in einer besonderen Nebentätigkeit leben. Hauptberuflich sind wir in anderen Bereichen tätig, doch die Arbeit mit der Natur ist für uns mehr als nur ein Ausgleich: Sie ist unsere Herzenssache.",
+    },
+    {
       icon: <Users className="w-6 h-6" />,
       title: "Jung, mutig, engagiert",
       description:
-        "Wir bringen stetig neue Erfahrungen mit, wachsen mit jedem Projekt und setzen auf moderne Techniken, Verantwortungsbewusstsein und Teamwork.",
+        "Wir bringen stetig neue Erfahrungen mit, wachsen mit jedem Projekt und setzen dabei auf moderne Techniken, Verantwortungsbewusstsein und echtes Teamwork. Gleichzeitig sind wir uns bewusst, dass man in diesem Handwerk nie auslernt. Als junges Team möchten wir unser Wissen stetig festigen, weiter ausbauen und mit jedem Auftrag wachsen – genau wie die Bäume, die wir pflegen.",
     },
     {
       icon: <Leaf className="w-6 h-6" />,
-      title: "Nachhaltig & verantwortungsvoll",
+      title: "♻️ Nachhaltig & verantwortungsvoll",
       description:
-        "Für uns bedeutet Baumpflege auch Verantwortung für Natur und Umwelt. Fachgerechte Entsorgung, nachhaltig und im Austausch mit der Naturschutzbehörde.",
+        "Natur ist unser Zuhause. Für uns bedeutet Baumpflege nicht nur Fällung oder Schnitt, sondern auch Verantwortung für Natur und Umwelt. Darum kümmern wir uns um eine fachgerechte und umweltbewusste Entsorgung – sauber, nachhaltig und zuverlässig im regen Austausch mit der unteren Naturschutzbehörde.",
     },
     {
       icon: <Award className="w-6 h-6" />,
-      title: "Unsere Erfahrung",
+      title: "🌳 Unsere Erfahrung",
       description:
-        "Gründung 2025 in Lübeck. Zwei-Mann-Team mit Erfahrung bei der freiwilligen Feuerwehr und öffentlichem Dienst. Zertifikate: AS-Baum I, AS-Baum II, SKT-A (ab 2026).",
+        "Im Zuge unserer Leidenschaft für Bäume haben wir im Jahr 2025 die Fa. Baumhelden Lübeck gegründet. Wir sind ein Zwei-Mann-Team, die ihr Handwerk seit mehreren Jahren im Bereich der freiwilligen Feuerwehr und im öffentlichen Dienst festigen konnten. Dabei haben wir es uns zur Aufgabe gemacht, stetig zu wachsen und unsere Fähigkeiten durch Zertifikate bestätigen zu lassen. Hierzu zählen u.a.: • AS-Baum I • AS-Baum II • SKT-A (ab 06.02.2026)",
     },
     {
-      icon: <Heart className="w-6 h-6" />,
+      icon: <CheckCircle className="w-6 h-6" />,
       title: "Warum wir?",
       description:
-        "Weil wir jung, motiviert und zuverlässig sind. Mit uns haben Sie echte Baumhelden an Ihrer Seite.",
+        "Weil wir mit echtem Engagement, wachsenden Fachkenntnissen und einer großen Portion Leidenschaft arbeiten. Wir sind jung, motiviert und zuverlässig – und geben jedem Baum die Aufmerksamkeit, die er verdient. Mit uns haben Sie nicht nur einen Dienstleister, sondern echte Baumhelden an Ihrer Seite.",
     },
     {
       icon: <Shield className="w-6 h-6" />,
       title: "Zuverlässigkeit & Service",
       description:
-        "Transparente Beratung, faire Preise, termingerechte Ausführung.",
+        "Wir stehen für transparente Beratung, faire Preise und termingerechte Ausführung. Bei uns gibt es keine halben Sachen – wir liefern Ergebnisse, auf die Sie sich verlassen können. 👉 Baumhelden – We feel nature",
     },
   ];
 
@@ -56,7 +62,7 @@ export function About() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mt-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mt-8">
           {values.slice(3).map((value, index) => (
             <div
               key={index + 3}
