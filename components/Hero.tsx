@@ -22,7 +22,7 @@ export function Hero() {
   return (
     <header 
       id="hero"
-      className="relative w-full h-[50vh] sm:h-[60vh] lg:h-[70vh] max-h-[820px] overflow-hidden"
+      className="relative w-full h-[50vh] sm:h-[60vh] lg:h-[70vh] max-h-[820px] overflow-hidden -mt-20 sm:-mt-24"
       aria-label="Hero"
     >
       {/* Background Image */}
@@ -42,7 +42,7 @@ export function Hero() {
       </div>
 
       {/* Hero Card */}
-      <div className="relative z-10 h-full flex items-center justify-start">
+      <div className="relative z-10 h-full flex items-center justify-start pt-20 sm:pt-24">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div 
             className={`
