@@ -24,7 +24,7 @@ interface Web3FormsResponse {
 
 const steps = [
   'Baumgröße',
-  'Baumbeigung',
+  'Baumbiegung',
   'Gebäude',
   'Zuwegung',
   'Entsorgung',
