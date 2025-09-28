@@ -14,11 +14,9 @@ export default function Home() {
       <main className="min-h-screen bg-white">
         <Header />
         <Hero />
-        <div className="pt-16 sm:pt-20">
-          <Services />
-          <About />
-          <GalleryContact />
-        </div>
+        <Services />
+        <About />
+        <GalleryContact />
         <Footerdemo />
         <WhatsAppButton />
         <CookieBanner />
