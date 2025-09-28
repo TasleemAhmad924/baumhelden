@@ -2,8 +2,15 @@
 
 import { Heart, Users, Leaf, Award, Shield, CheckCircle } from "lucide-react";
 
+interface ValueItem {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  certifications?: string[];
+}
+
 export function About() {
-  const values = [
+  const values: ValueItem[] = [
     {
       icon: <Heart className="w-6 h-6" />,
       title: "Baumhelden – We feel nature",
@@ -26,7 +33,12 @@ export function About() {
       icon: <Award className="w-6 h-6" />,
       title: "🌳 Unsere Erfahrung",
       description:
-        "Im Zuge unserer Leidenschaft für Bäume haben wir im Jahr 2025 die Fa. Baumhelden Lübeck gegründet. Wir sind ein Zwei-Mann-Team, die ihr Handwerk seit mehreren Jahren im Bereich der freiwilligen Feuerwehr und im öffentlichen Dienst festigen konnten. Dabei haben wir es uns zur Aufgabe gemacht, stetig zu wachsen und unsere Fähigkeiten durch Zertifikate bestätigen zu lassen. Hierzu zählen u.a.: • AS-Baum I • AS-Baum II • SKT-A (ab 06.02.2026)",
+        "Im Zuge unserer Leidenschaft für Bäume haben wir im Jahr 2025 die Fa. Baumhelden Lübeck gegründet. Wir sind ein Zwei-Mann-Team, die ihr Handwerk seit mehreren Jahren im Bereich der freiwilligen Feuerwehr und im öffentlichen Dienst festigen konnten. Dabei haben wir es uns zur Aufgabe gemacht, stetig zu wachsen und unsere Fähigkeiten durch Zertifikate bestätigen zu lassen.",
+      certifications: [
+        "AS-Baum I",
+        "AS-Baum II", 
+        "SKT-A (ab 06.02.2026)"
+      ]
     },
     {
       icon: <CheckCircle className="w-6 h-6" />,
@@ -53,11 +65,11 @@ export function About() {
           {values.slice(0, 3).map((value, index) => (
             <div
               key={index}
-              className="bg-white p-8 rounded-2xl shadow-lg transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl"
+              className="bg-white p-8 rounded-2xl shadow-lg transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl flex flex-col"
             >
               <div className="text-green-700 mb-4 flex justify-center">{value.icon}</div>
               <h3 className="text-lg font-bold text-gray-800 mb-4 text-center">{value.title}</h3>
-              <p className="text-gray-700 leading-relaxed text-sm text-center">{value.description}</p>
+              <p className="text-gray-700 leading-relaxed text-sm text-center flex-grow">{value.description}</p>
             </div>
           ))}
         </div>
@@ -66,11 +78,24 @@ export function About() {
           {values.slice(3).map((value, index) => (
             <div
               key={index + 3}
-              className="bg-white p-8 rounded-2xl shadow-lg transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl"
+              className="bg-white p-8 rounded-2xl shadow-lg transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl flex flex-col"
             >
               <div className="text-green-700 mb-4 flex justify-center">{value.icon}</div>
               <h3 className="text-lg font-bold text-gray-800 mb-4 text-center">{value.title}</h3>
-              <p className="text-gray-700 leading-relaxed text-sm text-center">{value.description}</p>
+              <p className="text-gray-700 leading-relaxed text-sm text-center flex-grow">{value.description}</p>
+              {value.certifications && (
+                <div className="mt-4 bg-gray-50 rounded-lg shadow-sm p-3">
+                  <h4 className="text-sm font-semibold text-gray-800 mb-2">Unsere Zertifizierungen:</h4>
+                  <ul className="space-y-1">
+                    {value.certifications.map((cert, certIndex) => (
+                      <li key={certIndex} className="text-sm font-semibold text-gray-800 flex items-center">
+                        <span className="text-green-600 mr-2">✅</span>
+                        {cert}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           ))}
         </div>

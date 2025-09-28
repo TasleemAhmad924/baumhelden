@@ -16,7 +16,7 @@ interface ContactFormData {
 
 interface Web3FormsResponse {
   success: boolean;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 const steps = ['Größe', 'Wuchs', 'Entsorgung', 'Kontakt'];

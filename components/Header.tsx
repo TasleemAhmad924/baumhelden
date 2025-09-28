@@ -112,7 +112,7 @@ export function Header() {
       </GlassCard>
       <div className="md:hidden mt-2">
         <GlassCard
-          className={`px-6 py-0 overflow-hidden transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${menuOpen ? 'opacity-100 translate-y-0 scale-100 max-h-96 py-4' : 'opacity-0 -translate-y-2 scale-[0.98] max-h-0 pointer-events-none'}`}
+          className={`px-6 py-0 overflow-hidden transition-all duration-500 ease-&lsqb;cubic-bezier(0.22,1,0.36,1)&rsqb; ${menuOpen ? 'opacity-100 translate-y-0 scale-100 max-h-96 py-4' : 'opacity-0 -translate-y-2 scale-[0.98] max-h-0 pointer-events-none'}`}
           aria-hidden={!menuOpen}
         >
           <div className="flex flex-col space-y-4">

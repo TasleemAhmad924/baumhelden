@@ -22,6 +22,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="de" className="scroll-smooth" suppressHydrationWarning>
+      <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PRN32XGH65"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-PRN32XGH65');
+            `,
+          }}
+        />
+      </head>
       <body className={inter.className} suppressHydrationWarning>
         {children}
       </body>

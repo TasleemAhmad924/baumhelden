@@ -3,6 +3,7 @@
 import * as React from "react"
 import { Instagram } from "lucide-react"
 import Link from 'next/link'
+import Image from 'next/image'
 
 function Footerdemo() {
   const currentYear = new Date().getFullYear()
@@ -13,13 +14,12 @@ function Footerdemo() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div className="order-1 md:order-1">
             <div className="flex items-center space-x-2 mb-6">
-              <div className="h-14 md:h-16 flex items-center justify-center">
-                <img src="/Original mit Slogan/BH_LSW.svg" alt="Baumhelden Logo" className="h-14 md:h-16 w-auto" />
+              <div className="h-20 md:h-24 lg:h-28 flex items-center justify-center">
+                <Image src="/Original mit Slogan/BH_LSW.svg" alt="Baumhelden Logo" width={112} height={112} className="h-20 md:h-24 lg:h-28 w-auto" />
               </div>
             </div>
             <p className="text-white/90 mb-4">
-              Ihre professionellen Experten für Baumpflege, Baumfällung und
-              Wurzelentfernung.
+              Ihre professionellen Experten für Baumfällung, Wurzelentfernung sowie Hilfe bei Sturmschäden und akuter Bruchgefahr.
             </p>
           </div>
           

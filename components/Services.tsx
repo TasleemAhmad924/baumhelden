@@ -7,14 +7,6 @@ import { Plus } from 'lucide-react';
 const services = [
   {
     id: 1,
-    title: 'Hilfe bei Sturmschäden und akuter Bruchgefahr',
-    short_description: 'Schnelle Unterstützung bei Sturmschäden und Gefahrensituationen',
-    full_description: 'Bei Sturmschäden und akuter Bruchgefahr ist schnelle Hilfe gefragt. Unser erfahrenes Team beurteilt die Situation professionell und reagiert zeitnah auf Notfälle. Wir sichern gefährliche Bereiche ab, entfernen umgestürzte Bäume und führen Notfallfällungen durch. Dabei setzen wir modernste Technik ein und arbeiten nach höchsten Sicherheitsstandards.',
-    image: '/Sturmschaeden.jpg',
-    icon: '🌪️'
-  },
-  {
-    id: 2,
     title: 'Baumfällung',
     short_description: 'Sicher, effizient mit moderner Technik',
     full_description: 'Bei der Baumfällung setzen wir auf höchste Sicherheitsstandards und moderne Technik. Ob Einzelbäume oder komplexe Fällungen in beengten Verhältnissen - wir planen jeden Einsatz sorgfältig und führen ihn mit professionellem Equipment durch. Dabei achten wir besonders auf den Schutz von Gebäuden, Leitungen und der Umgebung.',
@@ -22,20 +14,28 @@ const services = [
     icon: '🪓'
   },
   {
-    id: 3,
-    title: 'Entsorgung des Schnittguts und Stammholz',
-    short_description: 'Fachgerechte Entsorgung von Schnittgut und Stammholz',
-    full_description: 'Nach Baumfällungen und Schnittarbeiten übernehmen wir die fachgerechte Entsorgung von Schnittgut und Stammholz. Wir transportieren das Material ab und führen es der nachhaltigen Verwertung zu. Dabei arbeiten wir mit regionalen Partnern zusammen und sorgen für eine umweltfreundliche Entsorgung. Das Holz wird als Brennholz aufbereitet oder für andere Zwecke weiterverwendet.',
-    image: '/baum_entsorgung.jpg',
-    icon: '🪓'
+    id: 2,
+    title: 'Hilfe bei Sturmschäden und akuter Bruchgefahr',
+    short_description: 'Schnelle Unterstützung bei Sturmschäden und Gefahrensituationen',
+    full_description: 'Bei Sturmschäden und akuter Bruchgefahr ist schnelle Hilfe gefragt. Unser erfahrenes Team beurteilt die Situation professionell und reagiert zeitnah auf Notfälle. Wir sichern gefährliche Bereiche ab, entfernen umgestürzte Bäume und führen Notfallfällungen durch. Dabei setzen wir modernste Technik ein und arbeiten nach höchsten Sicherheitsstandards.',
+    image: '/Sturmschaeden_New.jpeg',
+    icon: '🌪️'
   },
   {
-    id: 4,
+    id: 3,
     title: 'Wurzelentfernung',
     short_description: 'Schonende Entfernung und Verwertung',
     full_description: 'Die professionelle Wurzelentfernung erfordert spezielle Techniken und Equipment. Wir entfernen Wurzelstöcke schonend und umweltverträglich, ohne den umliegenden Boden zu schädigen. Das gewonnene Holz wird nachhaltig verwertet oder als Brennholz aufbereitet. Dabei berücksichtigen wir alle örtlichen Gegebenheiten und Vorschriften.',
     image: '/Wurzelentfernung.jpg',
     icon: '🌱'
+  },
+  {
+    id: 4,
+    title: 'Entsorgung des Schnittguts und Stammholz',
+    short_description: 'Fachgerechte Entsorgung von Schnittgut und Stammholz',
+    full_description: 'Nach Baumfällungen und Schnittarbeiten übernehmen wir die fachgerechte Entsorgung von Schnittgut und Stammholz. Wir transportieren das Material ab und führen es der nachhaltigen Verwertung zu. Dabei arbeiten wir mit regionalen Partnern zusammen und sorgen für eine umweltfreundliche Entsorgung. Das Holz wird als Brennholz aufbereitet oder für andere Zwecke weiterverwendet.',
+    image: '/baum_entsorgung.jpg',
+    icon: '🪓'
   }
 ];
 
@@ -77,24 +77,26 @@ export function Services() {
                     {/* Dark Overlay for Text Readability - Extends fully to bottom */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                     
+                    {/* Plus Button - Fixed Position */}
+                    <button
+                      className="absolute top-6 right-6 w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center transition-all duration-300 hover:bg-white/30 z-10 shadow-lg"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleCard(service.id);
+                      }}
+                    >
+                      <Plus className={`w-4 h-4 text-white transition-transform duration-300 ${
+                        isExpanded ? 'rotate-45' : 'rotate-0'
+                      }`} />
+                    </button>
+
                     {/* Fixed Content Overlay - Always stays in same position */}
                     <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                      <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center mb-3">
                         <span className="text-2xl">{service.icon}</span>
-                        <button
-                          className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center transition-all duration-300 hover:bg-white/30"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            toggleCard(service.id);
-                          }}
-                        >
-                          <Plus className={`w-4 h-4 text-white transition-transform duration-300 ${
-                            isExpanded ? 'rotate-45' : 'rotate-0'
-                          }`} />
-                        </button>
                       </div>
                       
-                      <h3 className="text-xl font-bold mb-2">{service.title}</h3>
+                      <h3 className="text-xl font-bold mb-2 leading-tight">{service.title}</h3>
                       
                       {/* Short Description - Always visible */}
                       <p className="text-white/80 text-sm">

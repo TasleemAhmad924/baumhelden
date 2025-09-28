@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Header } from '@/components/Header';
 import { Footerdemo } from '@/components/ui/footer-section';
 import { HydrationBoundary } from '@/components/HydrationBoundary';

@@ -67,25 +67,26 @@ export function Hero() {
               padding: 'clamp(24px, 5vw, 40px) clamp(20px, 4vw, 32px)'
             }}
           >
-            <h1 
+            <div 
               className="
-                font-bold
-                uppercase
-                leading-[0.95]
                 mb-4
                 sm:mb-6
-                text-emerald-600
-                tracking-wide
                 drop-shadow-lg
               "
-              style={{
-                fontSize: 'clamp(28px, 6vw, 64px)',
-                fontWeight: '800',
-                textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
-              }}
             >
-              BAUMHELDEN
-            </h1>
+              <Image
+                src="/Original mit Slogan/BH_LSW.svg"
+                alt="BAUMHELDEN Logo"
+                width={400}
+                height={120}
+                priority
+                className="w-auto h-auto max-w-full"
+                style={{
+                  height: 'clamp(60px, 12vw, 120px)',
+                  filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.5))'
+                }}
+              />
+            </div>
             
             <p 
               className="

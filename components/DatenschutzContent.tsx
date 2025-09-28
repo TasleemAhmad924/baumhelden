@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 export function DatenschutzContent() {
   return (
     <div className="prose prose-gray max-w-none">
