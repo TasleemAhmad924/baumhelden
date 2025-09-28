@@ -1,11 +1,20 @@
-"use client";
+'use client'
 
-import { useState } from "react";
-import { GlassCard } from "./GlassCard";
-import TreeContactForm from "./forms/contactForm";
+import { useRef, useState } from 'react'
+import { GlassCard } from './GlassCard'
+import TreeContactForm from './forms/contactForm'
 
 export function GalleryContact() {
-  const [showForm, setShowForm] = useState(false);
+  const [showForm, setShowForm] = useState(false)
+  const formRef = useRef<HTMLDivElement | null>(null)
+
+  function handleClick() {
+    setShowForm(true) // Formular einblenden
+    // kurz warten, bis es im DOM gerendert ist
+    setTimeout(() => {
+      formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }, 100)
+  }
 
   return (
     <section id="contact" className="py-20 px-4 bg-white">
@@ -37,7 +46,7 @@ export function GalleryContact() {
                         <span className="font-medium">Telefon:</span> +49 160 93490444
                       </p>
                       <p className="text-gray-700 text-lg">
-                        <span className="font-medium">E-Mail:</span>{" "}
+                        <span className="font-medium">E-Mail:</span>{' '}
                         info@baumhelden-luebeck.de
                       </p>
                     </div>
@@ -45,18 +54,18 @@ export function GalleryContact() {
 
                   <div className="pt-8">
                     <button
-                      onClick={() => setShowForm((v) => !v)}
+                      onClick={handleClick}
                       aria-expanded={showForm}
                       aria-controls="tree-contact-form"
                       className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-medium text-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
                     >
-                      {showForm ? "Formular schließen" : "Kontakt aufnehmen"}
+                      {showForm ? 'Formular schließen' : 'Kontakt aufnehmen'}
                     </button>
                   </div>
                 </div>
 
                 {showForm && (
-                  <div id="tree-contact-form" className="mt-8">
+                  <div id="tree-contact-form" ref={formRef} className="mt-8">
                     <TreeContactForm />
                   </div>
                 )}
@@ -66,5 +75,5 @@ export function GalleryContact() {
         </div>
       </div>
     </section>
-  );
+  )
 }
