@@ -127,13 +127,13 @@ export const CookieBanner = () => {
               </p>
               <div className="flex gap-4 text-sm">
                 <a
-                  href="http://localhost:3000/privacy-policy"
+                  href="https://baumhelden-luebeck.de/datenschutz"
                   className="text-emerald-600 hover:text-emerald-700 underline transition-colors duration-200"
                 >
                   Datenschutz
                 </a>
                 <a
-                  href="http://localhost:3000/imprint"
+                  href="https://baumhelden-luebeck.de/impressum"
                   className="text-emerald-600 hover:text-emerald-700 underline transition-colors duration-200"
                 >
                   Impressum
