@@ -26,6 +26,11 @@ export default function ImprintPage() {
                   <p className="text-gray-700">Christian Theunert</p>
                 </div>
 
+                <div className="mb-6">
+                  <p className="font-semibold text-gray-900 mb-2">Rechtsform:</p>
+                  <p className="text-gray-700">Kleingewerbe nach § 19 UStG</p>
+                </div>
+
                 <div className="mb-8">
                   <p className="font-semibold text-gray-900 mb-2">Kontakt:</p>
                   <p className="text-gray-700">Telefon: <a href="tel:+4916093490444" className="text-emerald-600 hover:text-emerald-700 transition-colors">0160-93490444</a></p>
