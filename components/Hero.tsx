@@ -42,7 +42,7 @@ export function Hero() {
       </div>
 
       {/* Hero Card */}
-      <div className="relative z-10 h-full flex items-center justify-start pt-20 sm:pt-24">
+      <div className="relative z-10 h-full flex items-center justify-start">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div 
             className={`
