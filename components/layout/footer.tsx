@@ -131,7 +131,7 @@ export default function Footer() {
               href="/datenschutz"
               className="hover:text-white transition-colors"
             >
-              Datenschutzerklärung
+              Datenschutz
             </Link>
             <Link
               href="/impressum"
