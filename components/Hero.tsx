@@ -21,13 +21,14 @@ export function Hero() {
 
   return (
     <header 
+      id="hero"
       className="relative w-full h-[50vh] sm:h-[60vh] lg:h-[70vh] max-h-[820px] overflow-hidden"
       aria-label="Hero"
     >
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/background_mainpage.jpg"
+          src="/chainsaw-image-background.jpg"
           alt="Baumpflege Hintergrund"
           fill
           priority
@@ -37,17 +38,11 @@ export function Hero() {
           blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
         />
         
-        {/* Gradient Overlay */}
-        <div 
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background: 'linear-gradient(90deg, rgba(6,35,28,0.28) 0%, rgba(6,35,28,0.08) 55%, rgba(6,35,28,0.0) 100%)'
-          }}
-        />
+        <div className="absolute inset-0 bg-black/50 pointer-events-none" />
       </div>
 
       {/* Hero Card */}
-      <div className="relative z-10 h-full flex items-center justify-start">
+      <div className="relative z-10 h-full flex items-center justify-start pt-20 sm:pt-24">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div 
             className={`
@@ -72,30 +67,33 @@ export function Hero() {
               padding: 'clamp(24px, 5vw, 40px) clamp(20px, 4vw, 32px)'
             }}
           >
-            <h1 
+            <div 
               className="
-                font-bold
-                uppercase
-                leading-[0.95]
                 mb-4
                 sm:mb-6
-                text-[#233834]
-                tracking-wide
+                drop-shadow-lg
               "
-              style={{
-                fontSize: 'clamp(28px, 6vw, 64px)',
-                fontWeight: '800'
-              }}
             >
-              BAUMHELDEN
-            </h1>
+              <Image
+                src="/Original mit Slogan/BH_LSW.svg"
+                alt="BAUMHELDEN Logo"
+                width={400}
+                height={120}
+                priority
+                className="w-auto h-auto max-w-full"
+                style={{
+                  height: 'clamp(60px, 12vw, 120px)',
+                  filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.5))'
+                }}
+              />
+            </div>
             
             <p 
               className="
                 mb-6
                 sm:mb-8
                 leading-relaxed
-                text-[rgba(20,40,36,0.92)]
+                text-white
               "
               style={{
                 fontSize: 'clamp(14px, 2vw, 18px)',
@@ -117,29 +115,24 @@ export function Hero() {
                 rounded-full
                 font-medium
                 text-white
+                bg-emerald-600
                 transition-all
                 duration-200
                 ease-in-out
                 shadow-lg
                 hover:shadow-xl
                 hover:scale-105
+                hover:bg-emerald-700
                 active:scale-95
                 focus:outline-none
                 focus:ring-4
-                focus:ring-green-500/30
+                focus:ring-emerald-500/30
                 w-full
                 sm:w-auto
                 sm:min-w-[180px]
               "
               style={{
-                background: '#154237',
                 fontSize: 'clamp(14px, 2vw, 16px)'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = '#123b33';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = '#154237';
               }}
             >
               Jetzt Termin vereinbaren

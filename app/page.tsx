@@ -3,15 +3,24 @@ import { Hero } from '@/components/Hero';
 import { Services } from '@/components/Services';
 import { About } from '@/components/About';
 import { GalleryContact } from '@/components/GalleryContact';
+import { Footerdemo } from '@/components/ui/footer-section';
+import { HydrationBoundary } from '@/components/HydrationBoundary';
+import { WhatsAppButton } from '@/components/WhatsAppButton';
+import { CookieBanner } from '@/components/CookieBanner';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-green-50 via-white to-gray-50">
-      <Header />
-      <Hero />
-      <Services />
-      <About />
-      <GalleryContact />
-    </main>
+    <HydrationBoundary>
+      <main className="min-h-screen bg-white">
+        <Header />
+        <Hero />
+        <Services />
+        <About />
+        <GalleryContact />
+        <Footerdemo />
+        <WhatsAppButton />
+        <CookieBanner />
+      </main>
+    </HydrationBoundary>
   );
 }

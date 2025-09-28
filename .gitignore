@@ -35,7 +35,7 @@ yarn-error.log*
 
 # vercel
 .vercel
-
+*/target/*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
@@ -101,10 +101,11 @@ web_modules/
 
 # Optional npm cache directory
 .npm
-
+*/target/*
 # Optional eslint cache
 .eslintcache
-
+tree/
+target/
 # Microbundle cache
 .rpt2_cache/
 .rts2_cache_cjs/
@@ -138,7 +139,7 @@ dist
 
 # Gatsby files
 .cache/
-public
+
 
 # Storybook build outputs
 .out
