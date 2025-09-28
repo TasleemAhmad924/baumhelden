@@ -55,7 +55,11 @@ export function Header() {
 
   return (
     <header className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-screen-xl px-4">
-      <GlassCard className="flex items-center justify-between px-6 h-14">
+      <GlassCard className={`flex items-center justify-between px-6 h-14 transition-all duration-300 ${
+        atTop && isHomepage 
+          ? 'bg-transparent backdrop-blur-none border-transparent shadow-none' 
+          : 'bg-white/95 backdrop-blur-xl border-white/20 shadow-lg'
+      }`}>
         <div className="flex items-center">
           <Link href="/">
             <Image
@@ -112,7 +116,11 @@ export function Header() {
       </GlassCard>
       <div className="md:hidden mt-2">
         <GlassCard
-          className={`px-6 py-0 overflow-hidden transition-all duration-500 ease-&lsqb;cubic-bezier(0.22,1,0.36,1)&rsqb; ${menuOpen ? 'opacity-100 translate-y-0 scale-100 max-h-96 py-4' : 'opacity-0 -translate-y-2 scale-[0.98] max-h-0 pointer-events-none'}`}
+          className={`px-6 py-0 overflow-hidden transition-all duration-500 ease-&lsqb;cubic-bezier(0.22,1,0.36,1)&rsqb; ${
+            atTop && isHomepage 
+              ? 'bg-transparent backdrop-blur-none border-transparent shadow-none' 
+              : 'bg-white/95 backdrop-blur-xl border-white/20 shadow-lg'
+          } ${menuOpen ? 'opacity-100 translate-y-0 scale-100 max-h-96 py-4' : 'opacity-0 -translate-y-2 scale-[0.98] max-h-0 pointer-events-none'}`}
           aria-hidden={!menuOpen}
         >
           <div className="flex flex-col space-y-4">
