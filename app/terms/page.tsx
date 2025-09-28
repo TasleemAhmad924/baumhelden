@@ -9,7 +9,7 @@ export default function TermsPage() {
     <HydrationBoundary>
       <main className="min-h-screen bg-white">
         <Header />
-        <section className="px-4 pt-28 pb-16">
+        <section className="px-4 pt-32 sm:pt-36 pb-16">
           <div className="max-w-screen-xl mx-auto">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">AGB</h1>
             <GlassCard className="p-6 md:p-8">

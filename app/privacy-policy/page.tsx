@@ -8,7 +8,7 @@ export default function PrivacyPolicyPage() {
     <HydrationBoundary>
       <main className="min-h-screen bg-white">
         <Header />
-        <section className="px-4 pt-28 pb-16">
+        <section className="px-4 pt-32 sm:pt-36 pb-16">
           <div className="max-w-4xl mx-auto">
             <div className="bg-white p-6 md:p-8 rounded-2xl shadow-lg">
               <DatenschutzContent />

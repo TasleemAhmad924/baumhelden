@@ -13,10 +13,12 @@ export default function Home() {
     <HydrationBoundary>
       <main className="min-h-screen bg-white">
         <Header />
-        <Hero />
-        <Services />
-        <About />
-        <GalleryContact />
+        <div className="pt-24 sm:pt-28">
+          <Hero />
+          <Services />
+          <About />
+          <GalleryContact />
+        </div>
         <Footerdemo />
         <WhatsAppButton />
         <CookieBanner />
