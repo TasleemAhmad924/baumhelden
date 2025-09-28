@@ -1,19 +1,23 @@
-'use client'
+'use client';
 
-import { useRef, useState } from 'react'
-import { GlassCard } from './GlassCard'
-import TreeContactForm from './forms/contactForm'
+import { useRef, useState } from 'react';
+import { GlassCard } from './GlassCard';
+import TreeContactForm from './forms/contactForm';
 
 export function GalleryContact() {
-  const [showForm, setShowForm] = useState(false)
-  const formRef = useRef<HTMLDivElement | null>(null)
+  const [showForm, setShowForm] = useState(false);
+  const formRef = useRef<HTMLDivElement | null>(null);
 
   function handleClick() {
-    setShowForm(true) // Formular einblenden
-    // kurz warten, bis es im DOM gerendert ist
-    setTimeout(() => {
-      formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-    }, 100)
+    if (!showForm) {
+      setShowForm(true);
+      setTimeout(() => {
+        formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 50);
+    } else {
+      // falls erneut geklickt wird, nur scrollen
+      formRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 
   return (
@@ -24,7 +28,9 @@ export function GalleryContact() {
             Kontaktanfrage stellen
           </h2>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto px-4">
-            Stellen Sie jetzt Ihre unverbindliche Kontaktanfrage. Wir beraten Sie gerne individuell und melden uns schnellstmöglich bei Ihnen zurück.
+            Stellen Sie jetzt Ihre unverbindliche Kontaktanfrage. Wir beraten
+            Sie gerne individuell und melden uns schnellstmöglich bei Ihnen
+            zurück.
           </p>
         </div>
 
@@ -43,7 +49,8 @@ export function GalleryContact() {
                     </p>
                     <div className="space-y-3">
                       <p className="text-gray-700 text-lg">
-                        <span className="font-medium">Telefon:</span> +49 160 93490444
+                        <span className="font-medium">Telefon:</span> +49 160
+                        93490444
                       </p>
                       <p className="text-gray-700 text-lg">
                         <span className="font-medium">E-Mail:</span>{' '}
@@ -55,17 +62,21 @@ export function GalleryContact() {
                   <div className="pt-8">
                     <button
                       onClick={handleClick}
-                      aria-expanded={showForm}
                       aria-controls="tree-contact-form"
                       className="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-medium text-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
                     >
-                      {showForm ? 'Formular schließen' : 'Kontakt aufnehmen'}
+                      Kontakt aufnehmen
                     </button>
                   </div>
                 </div>
 
+                {/* Formular erst sichtbar, wenn Button geklickt */}
                 {showForm && (
-                  <div id="tree-contact-form" ref={formRef} className="mt-8">
+                  <div
+                    id="tree-contact-form"
+                    ref={formRef}
+                    className="mt-8 scroll-mt-24"
+                  >
                     <TreeContactForm />
                   </div>
                 )}
@@ -75,5 +86,5 @@ export function GalleryContact() {
         </div>
       </div>
     </section>
-  )
+  );
 }
