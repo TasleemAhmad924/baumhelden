@@ -4,18 +4,18 @@ import { useState } from 'react';
 
 type Step = 0 | 1 | 2 | 3 | 4 | 5;
 
-interface ContactFormData {
+type Web3FormsPayload = {
   access_key: string;
-  name: string;
-  email: string;
-  message: string;
-  phone?: string;
-  tree_size?: string;
-  baumbiegung?: string;
-  gebaeude_nahe?: string;
-  zuwegung_befahrbar?: string;
-  disposal?: string;
-}
+  Name: string;
+  'E-Mail': string;
+  Telefon: string;
+  Nachricht: string;
+  Baumgröße?: string;
+  Baumbiegung?: string;
+  'Gebäude-Nähe'?: string;
+  'Zuwegung befahrbar'?: string;
+  Entsorgung?: string;
+};
 
 interface Web3FormsResponse {
   success: boolean;
@@ -76,7 +76,7 @@ export default function TreeContactForm() {
     const message = (form.elements.namedItem('message') as HTMLTextAreaElement)
       .value;
 
-    const data: Record<string, string> = {
+    const data: Web3FormsPayload = {
       access_key: '59cb4de0-48c5-4a5d-b358-4a82f4a08ace',
       Name: name,
       'E-Mail': email,
