@@ -9,6 +9,7 @@ interface ContactFormData {
   name: string;
   email: string;
   message: string;
+  phone?: string;
   tree_size?: string;
   baum_beigung?: string;
   gebaeude_nahe?: string;
@@ -72,6 +73,8 @@ export default function TreeContactForm() {
     const form = e.currentTarget;
     const name = (form.elements.namedItem('name') as HTMLInputElement).value;
     const email = (form.elements.namedItem('email') as HTMLInputElement).value;
+    const phone =
+      (form.elements.namedItem('phone') as HTMLInputElement)?.value || '';
     const message = (form.elements.namedItem('message') as HTMLTextAreaElement)
       .value;
 
@@ -79,6 +82,7 @@ export default function TreeContactForm() {
       access_key: '59cb4de0-48c5-4a5d-b358-4a82f4a08ace',
       name,
       email,
+      phone,
       message,
       tree_size: choice.tree_size,
       baum_beigung: choice.baum_beigung,
@@ -140,16 +144,21 @@ export default function TreeContactForm() {
   );
 
   return (
-    <div className="mx-auto max-w-xl p-6">
-      {/* Stepper */}
-      <ol className="mb-6 flex items-center gap-2">
+    <div className="mx-auto w-full md:max-w-xl px-4 sm:px-6 py-6 overflow-x-hidden">
+      {/* Stepper (mobil horizontal scrollbar, feste Balkenbreite) */}
+      <ol className="mb-6 grid grid-cols-3 sm:grid-cols-6 gap-2 w-full">
         {steps.map((label, i) => (
-          <li key={label} className="flex-1">
+          <li key={label} className="min-w-0 flex flex-col items-center">
             <div
-              className={`h-2 rounded ${i <= step ? 'bg-blue-600' : 'bg-gray-200'}`}
+              className={`h-1.5 w-full rounded-full ${
+                i <= step ? 'bg-blue-600' : 'bg-gray-200'
+              }`}
             />
             <p
-              className={`mt-2 text-xs ${i === step ? 'font-semibold' : 'text-gray-500'}`}
+              className={`mt-2 text-[11px] sm:text-xs leading-4 text-center ${
+                i === step ? 'font-semibold' : 'text-gray-500'
+              } truncate`}
+              title={label}
             >
               {label}
             </p>
@@ -163,7 +172,7 @@ export default function TreeContactForm() {
           <h2 className="mb-4 text-lg font-semibold">
             Welche Baumgröße soll gefällt werden?
           </h2>
-          <div className="grid gap-3 sm:grid-cols-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             <Card onClick={() => select('tree_size', 'Klein')}>
               <div className="text-3xl">🌱</div>
               <div className="mt-1 font-medium">Klein</div>
@@ -195,7 +204,7 @@ export default function TreeContactForm() {
           <h2 className="mb-4 text-lg font-semibold">
             Wie ist die Baumbiegung?
           </h2>
-          <div className="grid gap-3 sm:grid-cols-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             <Card onClick={() => select('baum_beigung', 'Nach links geneigt')}>
               <div className="text-3xl">↖️</div>
               <div className="mt-1 font-medium">Nach links geneigt</div>
@@ -209,13 +218,16 @@ export default function TreeContactForm() {
               <div className="mt-1 font-medium">Nach rechts geneigt</div>
             </Card>
           </div>
-          <div className="mt-4 flex items-center justify-between">
-            <button onClick={back} className="text-sm text-gray-500 underline">
+          <div className="mt-4 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
+            <button
+              onClick={back}
+              className="w-full sm:w-auto rounded border px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+            >
               Zurück
             </button>
             <button
               onClick={next}
-              className="text-sm text-gray-500 underline"
+              className="w-full sm:w-auto text-sm text-gray-500 underline"
               disabled={!choice.baum_beigung}
             >
               Weiter
@@ -239,13 +251,16 @@ export default function TreeContactForm() {
             </Card>
             <Card onClick={() => select('gebaeude_nahe', 'Nein')}>Nein</Card>
           </div>
-          <div className="mt-4 flex items-center justify-between">
-            <button onClick={back} className="text-sm text-gray-500 underline">
+          <div className="mt-4 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
+            <button
+              onClick={back}
+              className="w-full sm:w-auto rounded border px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+            >
               Zurück
             </button>
             <button
               onClick={next}
-              className="text-sm text-gray-500 underline"
+              className="w-full sm:w-auto text-sm text-gray-500 underline"
               disabled={!choice.gebaeude_nahe}
             >
               Weiter
@@ -260,19 +275,22 @@ export default function TreeContactForm() {
           <h2 className="mb-4 text-lg font-semibold">
             Ist die Zuwegung zum Baum befahrbar?
           </h2>
-          <div className="grid gap-3 sm:grid-cols-2">
+          <div className="grid grid-cols-2 gap-3">
             <Card onClick={() => select('zuwegung_befahrbar', 'Ja')}>Ja</Card>
             <Card onClick={() => select('zuwegung_befahrbar', 'Nein')}>
               Nein
             </Card>
           </div>
-          <div className="mt-4 flex items-center justify-between">
-            <button onClick={back} className="text-sm text-gray-500 underline">
+          <div className="mt-4 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
+            <button
+              onClick={back}
+              className="w-full sm:w-auto rounded border px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+            >
               Zurück
             </button>
             <button
               onClick={next}
-              className="text-sm text-gray-500 underline"
+              className="w-full sm:w-auto text-sm text-gray-500 underline"
               disabled={!choice.zuwegung_befahrbar}
             >
               Weiter
@@ -295,13 +313,16 @@ export default function TreeContactForm() {
               ❌ Bitte übernehmen
             </Card>
           </div>
-          <div className="mt-4 flex items-center justify-between">
-            <button onClick={back} className="text-sm text-gray-500 underline">
+          <div className="mt-4 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
+            <button
+              onClick={back}
+              className="w-full sm:w-auto rounded border px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+            >
               Zurück
             </button>
             <button
               onClick={next}
-              className="text-sm text-gray-500 underline"
+              className="w-full sm:w-auto text-sm text-gray-500 underline"
               disabled={!choice.disposal}
             >
               Weiter
@@ -320,8 +341,7 @@ export default function TreeContactForm() {
             Kontakt & zusätzliche Angaben
           </h2>
 
-          {/* Zusammenfassung */}
-          <div className="rounded-lg bg-gray-50 p-3 text-sm text-gray-700">
+          <div className="rounded-lg bg-gray-50 p-3 text-sm text-gray-700 break-words">
             <div>
               <span className="font-medium">Baumgröße:</span>{' '}
               {choice.tree_size || '—'}
@@ -344,7 +364,6 @@ export default function TreeContactForm() {
             </div>
           </div>
 
-          {/* Name */}
           <div>
             <label
               htmlFor="name"
@@ -357,12 +376,11 @@ export default function TreeContactForm() {
               name="name"
               required
               placeholder="Ihr Name"
-              className="mt-1 block w-full rounded border border-gray-300 px-3 py-2 
-                   focus:border-blue-500 focus:outline-none focus:ring"
+              autoComplete="name"
+              className="mt-1 block w-full rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none focus:ring"
             />
           </div>
 
-          {/* Telefonnummer */}
           <div>
             <label
               htmlFor="phone"
@@ -373,13 +391,13 @@ export default function TreeContactForm() {
             <input
               type="tel"
               name="phone"
-              placeholder="+49 123 4567890"
-              className="mt-1 block w-full rounded border border-gray-300 px-3 py-2 
-                   focus:border-blue-500 focus:outline-none focus:ring"
+              inputMode="tel"
+              autoComplete="tel"
+              placeholder="+49 160 1234567"
+              className="mt-1 block w-full rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none focus:ring"
             />
           </div>
 
-          {/* E-Mail */}
           <div>
             <label
               htmlFor="email"
@@ -391,13 +409,12 @@ export default function TreeContactForm() {
               type="email"
               name="email"
               required
+              autoComplete="email"
               placeholder="email@example.com"
-              className="mt-1 block w-full rounded border border-gray-300 px-3 py-2 
-                   focus:border-blue-500 focus:outline-none focus:ring"
+              className="mt-1 block w-full rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none focus:ring"
             />
           </div>
 
-          {/* Nachricht */}
           <div>
             <label
               htmlFor="message"
@@ -410,8 +427,7 @@ export default function TreeContactForm() {
               rows={4}
               required
               placeholder="z. B. Zugang, Wunschtermin…"
-              className="mt-1 block w-full rounded border border-gray-300 px-3 py-2 
-                   focus:border-blue-500 focus:outline-none focus:ring"
+              className="mt-1 block w-full rounded border border-gray-300 px-3 py-2 focus:border-blue-500 focus:outline-none focus:ring"
             />
           </div>
 
@@ -434,18 +450,18 @@ export default function TreeContactForm() {
           />
           <input type="hidden" name="disposal" value={choice.disposal} />
 
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between">
             <button
               type="button"
               onClick={back}
-              className="rounded border px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
+              className="w-full sm:w-auto rounded border px-4 py-2 text-sm text-gray-700 hover:bg-gray-50"
             >
               Zurück
             </button>
             <button
               type="submit"
               disabled={sending}
-              className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 disabled:opacity-60"
+              className="w-full sm:w-auto rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 disabled:opacity-60"
             >
               {sending ? 'Senden…' : 'Formular senden'}
             </button>
