@@ -117,13 +117,13 @@ function Footerdemo() {
           </p>
           <nav className="flex gap-4 text-sm">
             <Link
-              href="/privacy-policy"
+              href="/datenschutz"
               className="transition-colors hover:text-white"
             >
               Datenschutz
             </Link>
             <Link
-              href="/imprint"
+              href="/impressum"
               className="transition-colors hover:text-white"
             >
               Impressum
