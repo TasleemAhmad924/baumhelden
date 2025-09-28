@@ -38,8 +38,7 @@ export function Hero() {
           blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
         />
         
-        {/* Simple dark overlay for readability */}
-        <div className="absolute inset-0 bg-black/20 pointer-events-none" />
+        <div className="absolute inset-0 bg-black/50 pointer-events-none" />
       </div>
 
       {/* Hero Card */}
@@ -77,10 +76,12 @@ export function Hero() {
                 sm:mb-6
                 text-emerald-600
                 tracking-wide
+                drop-shadow-lg
               "
               style={{
                 fontSize: 'clamp(28px, 6vw, 64px)',
-                fontWeight: '800'
+                fontWeight: '800',
+                textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
               }}
             >
               BAUMHELDEN
@@ -91,7 +92,7 @@ export function Hero() {
                 mb-6
                 sm:mb-8
                 leading-relaxed
-                text-emerald-700
+                text-white
               "
               style={{
                 fontSize: 'clamp(14px, 2vw, 18px)',
