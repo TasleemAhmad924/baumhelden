@@ -82,7 +82,7 @@ export function Hero() {
                 priority
                 className="w-auto h-auto max-w-full"
                 style={{
-                  height: 'clamp(60px, 12vw, 120px)',
+                  height: 'clamp(100px, 12vw, 120px)',
                   filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.5))'
                 }}
               />

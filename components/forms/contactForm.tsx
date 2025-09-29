@@ -24,7 +24,7 @@ interface Web3FormsResponse {
 
 const steps = [
   'Baumgröße',
-  'Baumbiegung',
+  'Baumneigung',
   'Gebäude',
   'Zuwegung',
   'Entsorgung',
@@ -191,7 +191,7 @@ export default function TreeContactForm() {
       {step === 1 && (
         <div className="rounded-2xl bg-white p-5 shadow-sm">
           <h2 className="mb-4 text-lg font-semibold">
-            Wie ist die Baumbiegung?
+            Wie ist die Baumneigung?
           </h2>
           <div className="grid grid-cols-3 gap-2">
             <Card onClick={() => select('baumbiegung', 'Nach links geneigt')}>
@@ -333,7 +333,7 @@ export default function TreeContactForm() {
               {choice.tree_size || '—'}
             </div>
             <div>
-              <span className="font-medium">Baumbiegung:</span>{' '}
+              <span className="font-medium">Baumneigung:</span>{' '}
               {choice.baumbiegung || '—'}
             </div>
             <div>
