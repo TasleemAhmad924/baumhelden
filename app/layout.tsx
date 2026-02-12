@@ -1,12 +1,15 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import { Maintenance } from '@/components/Maintenance';
 
 const inter = Inter({ subsets: ['latin'] });
+const maintenanceMode = process.env.NEXT_PUBLIC_MAINTENANCE_MODE === 'true';
 
 export const metadata: Metadata = {
   title: 'BAUMHELDEN - Professionelle Baumpflege und Baumfällung',
-  description: 'Wir kümmern uns um Ihre Bäume – sicher, schonend und ästhetisch. Zertifizierte Baumpfleger für Baumpflege, Baumfällung und Wurzelstockentfernung.',
+  description:
+    'Wir kümmern uns um Ihre Bäume – sicher, schonend und ästhetisch. Zertifizierte Baumpfleger für Baumpflege, Baumfällung und Wurzelstockentfernung.',
   keywords: 'Baumpflege, Baumfällung, Wurzelstockentfernung, Baumkontrolle, Baumpfleger',
   authors: [{ name: 'BAUMHELDEN' }],
   viewport: 'width=device-width, initial-scale=1',
@@ -36,7 +39,7 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className} suppressHydrationWarning>
-        {children}
+        {maintenanceMode ? <Maintenance /> : children}
       </body>
     </html>
   );
