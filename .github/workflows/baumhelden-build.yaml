@@ -36,6 +36,7 @@ jobs:
         env:
           CI: true
           SITE_URL: ${{ inputs.site-url }}
+          NEXT_PUBLIC_MAINTENANCE_MODE: "true"
         run: |
           npm ci
           npm run build
