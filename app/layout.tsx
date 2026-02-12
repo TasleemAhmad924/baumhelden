@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 import { Maintenance } from '@/components/Maintenance';
 
@@ -10,7 +11,8 @@ export const metadata: Metadata = {
   title: 'BAUMHELDEN - Professionelle Baumpflege und Baumfällung',
   description:
     'Wir kümmern uns um Ihre Bäume – sicher, schonend und ästhetisch. Zertifizierte Baumpfleger für Baumpflege, Baumfällung und Wurzelstockentfernung.',
-  keywords: 'Baumpflege, Baumfällung, Wurzelstockentfernung, Baumkontrolle, Baumpfleger',
+  keywords:
+    'Baumpflege, Baumfällung, Wurzelstockentfernung, Baumkontrolle, Baumpfleger',
   authors: [{ name: 'BAUMHELDEN' }],
   viewport: 'width=device-width, initial-scale=1',
   icons: {
@@ -25,20 +27,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="de" className="scroll-smooth" suppressHydrationWarning>
-      <head>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PRN32XGH65"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-PRN32XGH65');
-            `,
-          }}
-        />
-      </head>
+      <head></head>
       <body className={inter.className} suppressHydrationWarning>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-PRN32XGH65"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-PRN32XGH65');
+          `}
+        </Script>
         {maintenanceMode ? <Maintenance /> : children}
       </body>
     </html>

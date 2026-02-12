@@ -15,7 +15,7 @@ const nextConfig = {
   },
   // IONOS Deploy Now: statischer Export
   output: 'export',
-  distDir: 'target',     // sorgt dafür, dass alles in /target landet
+  distDir: 'target', // sorgt dafür, dass alles in /target landet
   trailingSlash: false,
 };
 

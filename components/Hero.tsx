@@ -7,7 +7,10 @@ export function Hero() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setIsVisible(true);
+    const rafId = requestAnimationFrame(() => {
+      setIsVisible(true);
+    });
+    return () => cancelAnimationFrame(rafId);
   }, []);
 
   const scrollToContact = () => {
@@ -20,7 +23,7 @@ export function Hero() {
   };
 
   return (
-    <header 
+    <header
       id="hero"
       className="relative w-full h-[50vh] sm:h-[60vh] lg:h-[70vh] max-h-[820px] overflow-hidden"
       aria-label="Hero"
@@ -37,14 +40,14 @@ export function Hero() {
           placeholder="blur"
           blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
         />
-        
+
         <div className="absolute inset-0 bg-black/50 pointer-events-none" />
       </div>
 
       {/* Hero Card */}
       <div className="relative z-10 h-full flex items-center justify-start pt-20 sm:pt-24">
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div 
+          <div
             className={`
               relative
               w-full
@@ -64,10 +67,10 @@ export function Hero() {
               border: '1px solid rgba(255,255,255,0.12)',
               borderRadius: '24px',
               boxShadow: '0 10px 30px rgba(6,20,12,0.12)',
-              padding: 'clamp(24px, 5vw, 40px) clamp(20px, 4vw, 32px)'
+              padding: 'clamp(24px, 5vw, 40px) clamp(20px, 4vw, 32px)',
             }}
           >
-            <div 
+            <div
               className="
                 mb-4
                 sm:mb-6
@@ -83,12 +86,12 @@ export function Hero() {
                 className="w-auto h-auto max-w-full"
                 style={{
                   height: 'clamp(100px, 12vw, 120px)',
-                  filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.5))'
+                  filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.5))',
                 }}
               />
             </div>
-            
-            <p 
+
+            <p
               className="
                 mb-6
                 sm:mb-8
@@ -97,12 +100,12 @@ export function Hero() {
               "
               style={{
                 fontSize: 'clamp(14px, 2vw, 18px)',
-                fontWeight: '400'
+                fontWeight: '400',
               }}
             >
               Wir kümmern uns um Ihre Bäume – sicher, schonend und ästhetisch.
             </p>
-            
+
             <button
               onClick={scrollToContact}
               aria-label="Termin vereinbaren"
@@ -132,7 +135,7 @@ export function Hero() {
                 sm:min-w-[180px]
               "
               style={{
-                fontSize: 'clamp(14px, 2vw, 16px)'
+                fontSize: 'clamp(14px, 2vw, 16px)',
               }}
             >
               Jetzt Termin vereinbaren

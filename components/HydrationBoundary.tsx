@@ -1,47 +1,57 @@
 // HydrationBoundary.tsx nur bei Browser Erweiterungen wichtig
 
+'use client';
 
-"use client"
-
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 
 interface HydrationBoundaryProps {
-  children: React.ReactNode
-  fallback?: React.ReactNode
+  children: React.ReactNode;
+  fallback?: React.ReactNode;
 }
 
-export function HydrationBoundary({ children, fallback = null }: HydrationBoundaryProps) {
-  const [isHydrated, setIsHydrated] = useState(false)
-  const [hasError, setHasError] = useState(false)
+export function HydrationBoundary({
+  children,
+  fallback = null,
+}: HydrationBoundaryProps) {
+  const [isHydrated, setIsHydrated] = useState(false);
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
-    
     const handleError = (event: ErrorEvent) => {
-      if (event.message.includes('hydration') || event.message.includes('Hydration')) {
-        console.warn('Hydration error detected, this is likely caused by browser extensions:', event.message)
-        setHasError(true)
-        event.preventDefault()
-        return false
+      if (
+        event.message.includes('hydration') ||
+        event.message.includes('Hydration')
+      ) {
+        console.warn(
+          'Hydration error detected, this is likely caused by browser extensions:',
+          event.message
+        );
+        setHasError(true);
+        event.preventDefault();
+        return false;
       }
-    }
+    };
 
     const handleUnhandledRejection = (event: PromiseRejectionEvent) => {
-      if (event.reason && typeof event.reason === 'string' && event.reason.includes('hydration')) {
-        console.warn('Hydration promise rejection detected:', event.reason)
-        setHasError(true)
-        event.preventDefault()
+      if (
+        event.reason &&
+        typeof event.reason === 'string' &&
+        event.reason.includes('hydration')
+      ) {
+        console.warn('Hydration promise rejection detected:', event.reason);
+        setHasError(true);
+        event.preventDefault();
       }
-    }
+    };
 
-    window.addEventListener('error', handleError)
-    window.addEventListener('unhandledrejection', handleUnhandledRejection)
+    window.addEventListener('error', handleError);
+    window.addEventListener('unhandledrejection', handleUnhandledRejection);
 
     // Mark as hydrated after a short delay to ensure DOM is stable
     const timer = setTimeout(() => {
-      setIsHydrated(true)
-    }, 100)
+      setIsHydrated(true);
+    }, 100);
 
-    
     const cleanupAttributes = () => {
       const attributesToRemove = [
         'bis_skin_checked',
@@ -49,22 +59,21 @@ export function HydrationBoundary({ children, fallback = null }: HydrationBounda
         'data-bitdefender',
         'data-avast',
         'data-kaspersky',
-        'data-norton'
-      ]
-      
+        'data-norton',
+      ];
+
       document.querySelectorAll('*').forEach(element => {
         attributesToRemove.forEach(attr => {
           if (element.hasAttribute(attr)) {
-            element.removeAttribute(attr)
+            element.removeAttribute(attr);
           }
-        })
-      })
-    }
+        });
+      });
+    };
 
-    cleanupAttributes()
+    cleanupAttributes();
 
-    
-    const observer = new MutationObserver(cleanupAttributes)
+    const observer = new MutationObserver(cleanupAttributes);
     observer.observe(document.body, {
       attributes: true,
       subtree: true,
@@ -74,21 +83,24 @@ export function HydrationBoundary({ children, fallback = null }: HydrationBounda
         'data-bitdefender',
         'data-avast',
         'data-kaspersky',
-        'data-norton'
-      ]
-    })
+        'data-norton',
+      ],
+    });
 
     return () => {
-      clearTimeout(timer)
-      window.removeEventListener('error', handleError)
-      window.removeEventListener('unhandledrejection', handleUnhandledRejection)
-      observer.disconnect()
-    }
-  }, [])
+      clearTimeout(timer);
+      window.removeEventListener('error', handleError);
+      window.removeEventListener(
+        'unhandledrejection',
+        handleUnhandledRejection
+      );
+      observer.disconnect();
+    };
+  }, []);
 
   if (hasError || !isHydrated) {
-    return <>{fallback}</>
+    return <>{fallback}</>;
   }
 
-  return <>{children}</>
+  return <>{children}</>;
 }
