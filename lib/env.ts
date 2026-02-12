@@ -9,28 +9,28 @@ const envSchema = z.object({
   NODE_ENV: z
     .enum(['development', 'production', 'test'])
     .default('development'),
-  
+
   // Database (placeholder for future use)
   DATABASE_URL: z.string().url().optional(),
-  
+
   // Email Service (placeholder for contact forms)
   SMTP_HOST: z.string().optional(),
   SMTP_PORT: z.string().optional(),
   SMTP_USER: z.string().optional(),
   SMTP_PASS: z.string().optional(),
-  
+
   // Google Services (placeholder for Maps API, Analytics)
   GOOGLE_MAPS_API_KEY: z.string().optional(),
   GOOGLE_ANALYTICS_ID: z.string().optional(),
-  
+
   // Contact Information
   BUSINESS_EMAIL: z.string().email().optional(),
   BUSINESS_PHONE: z.string().optional(),
-  
+
   // Social Media (placeholder)
   FACEBOOK_URL: z.string().url().optional(),
   INSTAGRAM_URL: z.string().url().optional(),
-  
+
   // Feature Flags
   ENABLE_CONTACT_FORM: z
     .string()
@@ -38,7 +38,7 @@ const envSchema = z.object({
     .pipe(z.boolean())
     .optional()
     .default('true'),
-  
+
   // Third-party integrations (placeholder)
   RECAPTCHA_SITE_KEY: z.string().optional(),
   RECAPTCHA_SECRET_KEY: z.string().optional(),

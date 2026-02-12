@@ -30,13 +30,13 @@ export function Maintenance() {
             Wir bitten um Ihr Verständnis.
           </p>
           <p className="text-sm leading-relaxed text-slate-700">
-            Unsere Website wird im Moment kurzzeitig gepflegt und aktualisiert, damit
-            wir Ihnen weiterhin eine zuverlässige und hochwertige Nutzung bieten
-            können.
+            Unsere Website wird im Moment kurzzeitig gepflegt und aktualisiert,
+            damit wir Ihnen weiterhin eine zuverlässige und hochwertige Nutzung
+            bieten können.
           </p>
           <p className="text-sm leading-relaxed text-slate-700">
-            In der Regel dauert dies nur kurze Zeit. Bitte versuchen Sie es in Kürze
-            erneut.
+            In der Regel dauert dies nur kurze Zeit. Bitte versuchen Sie es in
+            Kürze erneut.
           </p>
         </div>
 
@@ -49,4 +49,3 @@ export function Maintenance() {
     </main>
   );
 }
-

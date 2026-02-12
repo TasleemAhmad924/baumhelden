@@ -1,12 +1,12 @@
-"use client"
+'use client';
 
-import * as React from "react"
-import { Instagram } from "lucide-react"
-import Link from 'next/link'
-import Image from 'next/image'
+import * as React from 'react';
+import { Instagram } from 'lucide-react';
+import Link from 'next/link';
+import Image from 'next/image';
 
 function Footerdemo() {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="relative border-t bg-emerald-600 text-white transition-colors duration-300">
@@ -15,14 +15,21 @@ function Footerdemo() {
           <div className="order-1 md:order-1">
             <div className="flex items-center space-x-2 mb-6">
               <div className="h-20 md:h-24 lg:h-28 flex items-center justify-center">
-                <Image src="/Original mit Slogan/BH_LSW.svg" alt="Baumhelden Logo" width={112} height={112} className="h-20 md:h-24 lg:h-28 w-auto" />
+                <Image
+                  src="/Original mit Slogan/BH_LSW.svg"
+                  alt="Baumhelden Logo"
+                  width={112}
+                  height={112}
+                  className="h-20 md:h-24 lg:h-28 w-auto"
+                />
               </div>
             </div>
             <p className="text-white/90 mb-4">
-              Ihre professionellen Experten für Baumfällung, Wurzelentfernung sowie Hilfe bei Sturmschäden und akuter Bruchgefahr.
+              Ihre professionellen Experten für Baumfällung, Wurzelentfernung
+              sowie Hilfe bei Sturmschäden und akuter Bruchgefahr.
             </p>
           </div>
-          
+
           <div className="order-3 md:order-2">
             <h3 className="mb-4 text-lg font-semibold">Leistungen</h3>
             <nav className="space-y-2 text-sm">
@@ -60,16 +67,16 @@ function Footerdemo() {
               <p>Trappenstraße 12</p>
               <p>23558 Lübeck</p>
               <p>
-                <a 
-                  href="tel:+4916093490444" 
+                <a
+                  href="tel:+4916093490444"
                   className="hover:text-white transition-colors"
                 >
                   +49 160 93490444
                 </a>
               </p>
               <p>
-                <a 
-                  href="mailto:info@baumhelden-luebeck.de" 
+                <a
+                  href="mailto:info@baumhelden-luebeck.de"
                   className="hover:text-white transition-colors"
                 >
                   info@baumhelden-luebeck.de
@@ -132,7 +139,7 @@ function Footerdemo() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
 
-export { Footerdemo }
+export { Footerdemo };

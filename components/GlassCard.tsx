@@ -7,7 +7,11 @@ interface GlassCardProps {
   as?: keyof React.JSX.IntrinsicElements;
 }
 
-export function GlassCard({ children, className, as: Component = 'div' }: GlassCardProps) {
+export function GlassCard({
+  children,
+  className,
+  as: Component = 'div',
+}: GlassCardProps) {
   return (
     <Component
       className={cn(

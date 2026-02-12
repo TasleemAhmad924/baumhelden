@@ -58,7 +58,7 @@ npm start
 ## 📱 Responsive Breakpoints
 
 - **Mobile**: < 768px
-- **Tablet**: 768px - 1024px  
+- **Tablet**: 768px - 1024px
 - **Desktop**: > 1024px
 
 ## 🎯 Sektionen
@@ -72,16 +72,19 @@ npm start
 ## 🎨 Design-System
 
 ### Farben
+
 - **Primär**: Grün (#22c55e) für Natur-Thematik
 - **Sekundär**: Grau (#374151) für Professionalität
 - **Glas-Effekt**: Weiß mit 10% Opacity
 
 ### Typografie
+
 - **Schriftart**: Inter (Google Fonts)
 - **Größen**: Responsive von 16px bis 64px
 - **Gewichte**: Regular (400), Medium (500), Semibold (600), Bold (700)
 
 ### Komponenten
+
 - **GlassCard**: Wiederverwendbare Glas-Komponente
 - **Glassmorphism**: backdrop-blur-xl, bg-white/10, border-white/10
 - **Schatten**: Soft shadows für Tiefe

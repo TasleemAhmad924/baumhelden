@@ -7,10 +7,10 @@ import { useEffect, useState } from 'react';
 import { GlassCard } from './GlassCard';
 
 export function Header() {
-  const [atTop, setAtTop] = useState(true);
-  const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
   const isHomepage = pathname === '/';
+  const [atTop, setAtTop] = useState(!isHomepage);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     if (isHomepage) {
@@ -20,13 +20,13 @@ export function Header() {
       onScroll();
       window.addEventListener('scroll', onScroll, { passive: true });
       return () => window.removeEventListener('scroll', onScroll);
-    } else {
-      setAtTop(false);
     }
   }, [isHomepage]);
 
   const linkBase = 'transition-colors';
-  const linkColor = atTop ? 'text-white hover:text-gray-200' : 'text-gray-900 hover:text-gray-700';
+  const linkColor = atTop
+    ? 'text-white hover:text-gray-200'
+    : 'text-gray-900 hover:text-gray-700';
   const dotColor = atTop ? 'text-white/50' : 'text-gray-400';
   const mobileColor = atTop ? 'text-white' : 'text-gray-900';
 
@@ -68,31 +68,43 @@ export function Header() {
             />
           </Link>
         </div>
-        
+
         <nav className="hidden md:flex items-center space-x-6">
-          <button onClick={() => handleHomepageNavigation('hero')} className={`relative group ${linkBase} ${linkColor}`}>
+          <button
+            onClick={() => handleHomepageNavigation('hero')}
+            className={`relative group ${linkBase} ${linkColor}`}
+          >
             <span>Startseite</span>
             <span className="pointer-events-none absolute left-0 -bottom-1 h-0.5 w-full origin-left scale-x-0 bg-current transition-transform duration-200 ease-out group-hover:scale-x-100" />
           </button>
           <span className={dotColor}>•</span>
-          <button onClick={() => handleHomepageNavigation('leistungen')} className={`relative group ${linkBase} ${linkColor}`}>
+          <button
+            onClick={() => handleHomepageNavigation('leistungen')}
+            className={`relative group ${linkBase} ${linkColor}`}
+          >
             <span>Unsere Leistungen</span>
             <span className="pointer-events-none absolute left-0 -bottom-1 h-0.5 w-full origin-left scale-x-0 bg-current transition-transform duration-200 ease-out group-hover:scale-x-100" />
           </button>
           <span className={dotColor}>•</span>
-          <button onClick={() => handleHomepageNavigation('about')} className={`relative group ${linkBase} ${linkColor}`}>
+          <button
+            onClick={() => handleHomepageNavigation('about')}
+            className={`relative group ${linkBase} ${linkColor}`}
+          >
             <span>Über uns</span>
             <span className="pointer-events-none absolute left-0 -bottom-1 h-0.5 w-full origin-left scale-x-0 bg-current transition-transform duration-200 ease-out group-hover:scale-x-100" />
           </button>
           <span className={dotColor}>•</span>
-          <button onClick={() => handleHomepageNavigation('contact')} className={`relative group ${linkBase} ${linkColor}`}>
+          <button
+            onClick={() => handleHomepageNavigation('contact')}
+            className={`relative group ${linkBase} ${linkColor}`}
+          >
             <span>Kontaktanfrage</span>
             <span className="pointer-events-none absolute left-0 -bottom-1 h-0.5 w-full origin-left scale-x-0 bg-current transition-transform duration-200 ease-out group-hover:scale-x-100" />
           </button>
         </nav>
 
         <button
-          onClick={() => setMenuOpen((v) => !v)}
+          onClick={() => setMenuOpen(v => !v)}
           aria-expanded={menuOpen}
           aria-label="Menü öffnen"
           className={`md:hidden ${mobileColor} transition-colors`}
@@ -116,16 +128,40 @@ export function Header() {
           aria-hidden={!menuOpen}
         >
           <div className="flex flex-col space-y-4">
-            <button onClick={() => { handleHomepageNavigation('hero'); setMenuOpen(false); }} className={`${linkBase} ${mobileColor} active:opacity-70`}>
+            <button
+              onClick={() => {
+                handleHomepageNavigation('hero');
+                setMenuOpen(false);
+              }}
+              className={`${linkBase} ${mobileColor} active:opacity-70`}
+            >
               Startseite
             </button>
-            <button onClick={() => { handleHomepageNavigation('leistungen'); setMenuOpen(false); }} className={`${linkBase} ${mobileColor} active:opacity-70`}>
+            <button
+              onClick={() => {
+                handleHomepageNavigation('leistungen');
+                setMenuOpen(false);
+              }}
+              className={`${linkBase} ${mobileColor} active:opacity-70`}
+            >
               Unsere Leistungen
             </button>
-            <button onClick={() => { handleHomepageNavigation('about'); setMenuOpen(false); }} className={`${linkBase} ${mobileColor} active:opacity-70`}>
+            <button
+              onClick={() => {
+                handleHomepageNavigation('about');
+                setMenuOpen(false);
+              }}
+              className={`${linkBase} ${mobileColor} active:opacity-70`}
+            >
               Über uns
             </button>
-            <button onClick={() => { handleHomepageNavigation('contact'); setMenuOpen(false); }} className={`${linkBase} ${mobileColor} active:opacity-70`}>
+            <button
+              onClick={() => {
+                handleHomepageNavigation('contact');
+                setMenuOpen(false);
+              }}
+              className={`${linkBase} ${mobileColor} active:opacity-70`}
+            >
               Kontaktanfrage
             </button>
           </div>
