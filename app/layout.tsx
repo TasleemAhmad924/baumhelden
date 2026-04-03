@@ -1,10 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { Maintenance } from '@/components/Maintenance';
 
 const inter = Inter({ subsets: ['latin'] });
-const maintenanceMode = process.env.NEXT_PUBLIC_MAINTENANCE_MODE === 'true';
 
 export const metadata: Metadata = {
   title: 'BAUMHELDEN - Professionelle Baumpflege und Baumfällung',
@@ -39,7 +37,7 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className} suppressHydrationWarning>
-        {maintenanceMode ? <Maintenance /> : children}
+        {children}
       </body>
     </html>
   );
