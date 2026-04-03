@@ -57,6 +57,12 @@ function Footerdemo() {
               >
                 Wurzelentfernung
               </Link>
+              <Link
+                href="/#leistungen"
+                className="block transition-colors hover:text-white"
+              >
+                Baumpflege
+              </Link>
             </nav>
           </div>
 

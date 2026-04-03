@@ -37,7 +37,9 @@ export function About() {
       certifications: [
         "AS-Baum I",
         "AS-Baum II", 
-        "SKT-A (ab 06.02.2026)"
+        "SKT-A",
+        "FLL (2026)",
+        "SKT-B (2027)"
       ]
     },
     {

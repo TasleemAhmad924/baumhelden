@@ -36,6 +36,14 @@ const services = [
     full_description: 'Nach Baumfällungen und Schnittarbeiten übernehmen wir die fachgerechte Entsorgung von Schnittgut und Stammholz. Wir transportieren das Material ab und führen es der nachhaltigen Verwertung zu. Dabei arbeiten wir mit regionalen Partnern zusammen und sorgen für eine umweltfreundliche Entsorgung. Das Holz wird als Brennholz aufbereitet oder für andere Zwecke weiterverwendet.',
     image: '/baum_entsorgung.jpg',
     icon: '🪓'
+  },
+  {
+    id: 5,
+    title: 'Baumpflege',
+    short_description: 'Regelmäßige Pflege für vitale und langlebige Bäume',
+    full_description: 'Gesunde Bäume sehen nicht nur schön aus, sondern sind auch ein wichtiger Bestandteil eines funktionsfähigen Ökosystems. Mit regelmäßiger und fachgerechter Pflege tragen wir dazu bei, die Vitalität und Lebensdauer Ihrer Bäume zu erhalten.\n\nDank moderner Seilklettertechnik arbeiten wir sicher, präzise und unabhängig vom Gelände. Ob schonende Kronenpflege, fachgerechte Baumfällung oder die Entfernung von Totholz – wir bieten Ihnen flexible Lösungen und effiziente Umsetzung aus einer Hand.',
+    image: '/tree-maintenance.jpg',
+    icon: '🌳'
   }
 ];
 
@@ -53,8 +61,9 @@ export function Services() {
           Unsere Leistungen
         </h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-          {services.map((service) => {
+        {/* Row 1: First 3 cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {services.slice(0, 3).map((service) => {
             const isExpanded = expandedCard === service.id;
             
             return (
@@ -71,7 +80,7 @@ export function Services() {
                       alt={service.title}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                     
                     {/* Dark Overlay for Text Readability - Extends fully to bottom */}
@@ -109,7 +118,76 @@ export function Services() {
                   <div className={`bg-green-700 transition-all duration-500 ease-in-out overflow-hidden ${
                     isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                   }`}>
-                    <div className="p-6 pt-4 text-white">
+                    <div className="p-8 pt-6 text-white">
+                      <p className="text-white leading-relaxed text-sm">
+                        {service.full_description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Row 2: Last 2 cards, centered */}
+        <div className="mt-6 lg:mt-8 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 lg:flex lg:justify-center">
+          {services.slice(3).map((service) => {
+            const isExpanded = expandedCard === service.id;
+            
+            return (
+              <div
+                key={service.id}
+                className="relative group cursor-pointer lg:w-[calc(33.333%-1.333rem)]"
+                onClick={() => toggleCard(service.id)}
+              >
+                <div className="relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
+                  {/* Fixed Header Section - Image with Overlay Content */}
+                  <div className="relative h-80 md:h-96 overflow-hidden">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                    
+                    {/* Dark Overlay for Text Readability - Extends fully to bottom */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                    
+                    {/* Plus Button - Fixed Position */}
+                    <button
+                      className="absolute top-6 right-6 w-8 h-8 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center transition-all duration-300 hover:bg-white/30 z-10 shadow-lg"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleCard(service.id);
+                      }}
+                    >
+                      <Plus className={`w-4 h-4 text-white transition-transform duration-300 ${
+                        isExpanded ? 'rotate-45' : 'rotate-0'
+                      }`} />
+                    </button>
+
+                    {/* Fixed Content Overlay - Always stays in same position */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                      <div className="flex items-center mb-3">
+                        <span className="text-2xl">{service.icon}</span>
+                      </div>
+                      
+                      <h3 className="text-xl font-bold mb-2 leading-tight">{service.title}</h3>
+                      
+                      {/* Short Description - Always visible */}
+                      <p className="text-white/80 text-sm">
+                        {service.short_description}
+                      </p>
+                    </div>
+                  </div>
+                  
+                  {/* Expandable Content Area - Only this slides down */}
+                  <div className={`bg-green-700 transition-all duration-500 ease-in-out overflow-hidden ${
+                    isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                  }`}>
+                    <div className="p-8 pt-6 text-white">
                       <p className="text-white leading-relaxed text-sm">
                         {service.full_description}
                       </p>
